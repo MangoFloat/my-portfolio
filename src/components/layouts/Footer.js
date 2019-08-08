@@ -3,7 +3,15 @@ import { Paper, Tabs } from '@material-ui/core'
 import Tab from '@material-ui/core/Tab'
 
 class Footer extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      muscles: props.muscles
+    }
+  }
+
   render() {
+    console.log(this.state.muscles);
     return (
       <Paper>
         <Tabs
@@ -12,9 +20,10 @@ class Footer extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+          <Tab label="All" />
+          {this.state.muscles.map(group =>
+            <Tab label={group} />
+          )}
         </Tabs>
       </Paper>
     )
