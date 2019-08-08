@@ -1,11 +1,17 @@
 import React from 'react'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
 class Header extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Header</h1>
-      </div>)
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h4" gutterBottom>
+            My Portfolio
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    )
   }
 }
 

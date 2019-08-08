@@ -1,15 +1,13 @@
-import React, { Fragment } from "react"
+import React, { Component, Fragment } from "react"
 import Header from "../components/layouts/Header"
 import Footer from "../components/layouts/Footer"
+import Index from "../components/exercises/index"
 
-import TicTacToe from "../components/tic-tac-toe"
-
-class Test extends React.Component {
+class Test extends Component {
   render() {
     return <Fragment>
       <Header/>
-      <TicTacToe/>
-
+      <Index/>
       <Footer/>
     </Fragment>
   }
