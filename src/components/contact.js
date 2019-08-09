@@ -1,16 +1,17 @@
 import React, { Component, Fragment } from 'react'
 import Paper from '@material-ui/core/Paper'
 
-const footerStyles = {
+class Contact extends Component {
 
-}
 
-export default class Footer extends Component {
-  render() {
+  render(){
     return <Fragment>
-      <Paper square={true} elevation={3}>
-        <h1>Footer</h1>
+      <Paper>
+        Contact here!
       </Paper>
     </Fragment>
+
   }
 }
+
+export default Contact
