@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react"
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core"
-import { List, ListItemText } from "@material-ui/core"
+import { Link, List, ListItemText, Tabs, Tab } from "@material-ui/core"
 
 const headerStyles = {
   List: {
@@ -19,25 +19,24 @@ class Header extends Component {
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography variant="h4" gutterBottom style={{ flex: 1 }}>
-            June Jaictin
+            <Link href={'/'} underline='none'>
+              June Jaictin
+            </Link>
           </Typography>
-          <List style={headerStyles.List}>
-            <Button>
-              <ListItemText style={headerStyles.ListItemText}>
-                Projects
-              </ListItemText>
-            </Button>
-            <Button>
-              <ListItemText style={headerStyles.ListItemText}>
-                Skills
-              </ListItemText>
-            </Button>
-            <Button>
-              <ListItemText style={headerStyles.ListItemText}>
-                Contact
-              </ListItemText>
-            </Button>
-          </List>
+          <Tabs value={0}>
+            <Tab label="Home">
+
+            </Tab>
+            <Tab label="Projects">
+
+            </Tab>
+            <Tab label="Skills">
+
+            </Tab>
+            <Tab label="Contact">
+
+            </Tab>
+          </Tabs>
         </Toolbar>
       </AppBar>
     </Fragment>
