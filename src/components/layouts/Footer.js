@@ -1,15 +1,46 @@
 import React, { Component, Fragment } from 'react'
-import Paper from '@material-ui/core/Paper'
-
-const footerStyles = {
-
-}
+import { Paper, Grid, Typography } from '@material-ui/core'
 
 export default class Footer extends Component {
   render() {
     return <Fragment>
       <Paper square={true} elevation={3}>
-        <h1>Footer</h1>
+        <Grid container style={{textAlign: 'center'}}>
+          <Grid item xs={1}>
+            <Typography variant='body2'>
+              Home
+            </Typography>
+          </Grid>
+          <Grid item xs={1}>
+            <Typography variant='body2'>
+              Projects
+            </Typography>
+          </Grid>
+          <Grid item xs={1}>
+            <Typography variant='body2'>
+              Skills
+            </Typography>
+          </Grid>
+          <Grid item xs={1}>
+            <Typography variant='body2'>
+              Contact
+            </Typography>
+          </Grid>
+          <Grid item xs style={{padding: 5}}>
+            <Typography variant='body2' align='right'>
+              +44 7710 393505
+            </Typography>
+            <Typography variant='body2' align='right'>
+              jaictinjune@gmail.com
+            </Typography>
+            <Typography variant='body2' align='right'>
+              https://www.linkedin.com/in/junejaictin
+            </Typography>
+            <Typography variant='body2' align='right'>
+              https://github.com/MangoFloat
+            </Typography>
+          </Grid>
+        </Grid>
       </Paper>
     </Fragment>
   }
