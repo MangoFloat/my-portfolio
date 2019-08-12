@@ -6,26 +6,7 @@ export default class Footer extends Component {
     return <Fragment>
       <Paper square={true} elevation={3}>
         <Grid container style={{textAlign: 'center'}}>
-          <Grid item xs={1}>
-            <Typography variant='body2'>
-              Home
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            <Typography variant='body2'>
-              Projects
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            <Typography variant='body2'>
-              Skills
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            <Typography variant='body2'>
-              Contact
-            </Typography>
-          </Grid>
+
           <Grid item xs style={{padding: 5}}>
             <Typography variant='body2' align='right'>
               +44 7710 393505
