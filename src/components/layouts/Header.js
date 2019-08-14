@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from "react"
 import {
   AppBar, Toolbar, Typography,
-  Button, Link, List, ListItemText,
-  Tabs, Tab } from "@material-ui/core"
+  Button, Link, List, ListItem,
+  Tabs, Tab, Paper, Grid } from "@material-ui/core"
 
 const headerStyles = {
   name: {
-    flex: 1
+
   },
   links: {
     margin: 5,
-    padding: 10
+    padding: 10,
+    display: 'flex',
+    flexDirection: 'row'
   },
   active: {
 
@@ -53,24 +55,26 @@ class Header extends Component {
 
   render() {
     return <Fragment>
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <Typography variant="h4" gutterBottom style={headerStyles.name}>
-            <Link href={'/'} underline='none'>
-              June Jaictin
-            </Link>
-          </Typography>
-          {
-            Object.values(this.state.links).map((link) =>
-              <Typography>
-                <Link href={link.ref} style={headerStyles.links}>
-                  {link.title}
+        <Paper>
+          <Grid container>
+            <Grid item xs>
+              <Typography variant="h4" gutterBottom style={headerStyles.name}>
+                <Link href={'/'} underline='none'>
+                  June Jaictin
                 </Link>
               </Typography>
-            )
-          }
-        </Toolbar>
-      </AppBar>
+            </Grid>
+            {Object.values(this.state.links).map((link) =>
+                <Grid item>
+                <Typography>
+                  <Link href={link.ref} style={headerStyles.links}>
+                    {link.title}
+                  </Link>
+                </Typography>
+                </Grid>
+              )}
+          </Grid>
+        </Paper>
     </Fragment>
   }
 }
