@@ -8,15 +8,10 @@ class Home extends Component {
     return <Fragment>
       <Paper>
         <Typography align="center" variant="h5">
-          Software Developer
+          Full Stack Developer
         </Typography>
-        <Typography paragraph={true} align="center" variant="body" gutterBottom>
+        <Typography align='center' variant="body2">
           Experience in full stack development blah blah blah
-        </Typography>
-        <Typography paragraph={true} align="center" variant="body" gutterBottom>
-          Experience in full stack development blah blah blah
-        </Typography>
-        <Typography paragraph={true} align="center" variant="body" gutterBottom>
           Experience in full stack development blah blah blah
         </Typography>
       </Paper>
