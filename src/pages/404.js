@@ -5,7 +5,7 @@ import Footer from "../components/layouts/Footer"
 class PageNotFound extends React.Component {
   render() {
     return <Fragment>
-      <Header/>
+      <Header />
         <div>
           Page not found
         </div>
