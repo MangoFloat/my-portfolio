@@ -1,5 +1,8 @@
 import React, { Fragment } from "react"
-import { Paper, Typography } from "@material-ui/core"
+import {
+  Paper, Typography, Grid,
+  Card, CardMedia, CardContent
+} from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles({
@@ -13,8 +16,71 @@ const useStyles = makeStyles({
   title: {
     paddingTop: 10,
     paddingBottom: 10,
+  },
+  card: {
+    maxWidth: 345
+  },
+  media: {
+    height: 140
   }
 });
+
+const projects = {
+  james1: {
+    title: 'Haha James 1',
+    description: 'Testing 1',
+    imageSource: require('../images/james_wheelchair.png'),
+    imageTitle: 'Haha James 1'
+  },
+  james2: {
+    title: 'Haha James 2',
+    description: 'Testing 2',
+    imageSource: require('../images/james_rocklee.png'),
+    imageTitle: 'Haha James 2'
+  },
+  james3: {
+    title: 'Haha James 3',
+    description: 'Testing 3',
+    imageSource: require('../images/james_wheelchair.png'),
+    imageTitle: 'Haha James 3'
+  },
+  james4: {
+    title: 'Haha James 4',
+    description: 'Testing 4',
+    imageSource: require('../images/james_coconut.png'),
+    imageTitle: 'Haha James 4'
+  },
+  james5: {
+    title: 'Haha James 5',
+    description: 'Testing 5',
+    imageSource: require('../images/james_bus.png'),
+    imageTitle: 'Haha James 5'
+  },
+  james6: {
+    title: 'Haha James 6',
+    description: 'Testing 6',
+    imageSource: require('../images/james_shower1.png'),
+    imageTitle: 'Haha James 6'
+  },
+  james7: {
+    title: 'Haha James 7',
+    description: 'Testing 7',
+    imageSource: require('../images/james_wtf.png'),
+    imageTitle: 'Haha James 7'
+  },
+  james8: {
+    title: 'Haha James 8',
+    description: 'Testing 8',
+    imageSource: require('../images/james_ww2.png'),
+    imageTitle: 'Haha James 8'
+  },
+  james9: {
+    title: 'Haha James 9',
+    description: 'Testing 9',
+    imageSource: require('../images/james_readytodie.png'),
+    imageTitle: 'Haha James 9'
+  },
+}
 
 function Projects(props) {
   const classes = useStyles();
@@ -24,14 +90,31 @@ function Projects(props) {
       <Typography className={classes.title} align="center" variant="h5">
         Projects
       </Typography>
-      <Typography align='center' variant="body2" paragraph={true}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus ligula et accumsan finibus.
-        Pellentesque pretium ex vel tellus placerat dictum. Quisque nec euismod lacus. Praesent maximus augue ut
-        sapien dictum, nec dignissim massa dignissim. Nullam tincidunt ligula ipsum, ut dapibus tellus porttitor eu.
-        Mauris vestibulum est ut augue condimentum, in tincidunt nisi commodo. Phasellus vulputate vulputate luctus.
-        Nullam fermentum, sapien nec ornare vestibulum, enim urna cursus ipsum, quis vulputate massa urna aliquam
-        felis. Donec vitae tortor dolor.
-      </Typography>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        spacing={1}>
+        {Object.values(projects).map((project) =>
+          <Grid lg={2} item>
+            <Card className={classes.card}>
+              <CardMedia
+                className={classes.media}
+                image={project.imageSource}
+                title={project.imageTitle}>
+              </CardMedia>
+              <CardContent>
+                <Typography variant='h5' gutterBottom>
+                  {project.title}
+                </Typography>
+                <Typography variant='body'>
+                  {project.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        )}
+      </Grid>
     </Paper>
   </Fragment>
 }
