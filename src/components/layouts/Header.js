@@ -37,19 +37,6 @@ function PandaIcon(props ) {
   </SvgIcon>
 }
 
-function ScrollToSection(elementId) {
-  const headerElement = document.getElementById('header');
-  const headerOffset = headerElement.clientHeight;
-
-  const elementToScrollTo = document.getElementById(elementId);
-  const elementHeight = elementToScrollTo.getBoundingClientRect().top + window.pageYOffset;
-
-  window.scrollTo({
-    top: elementHeight - headerOffset,
-    behavior: 'smooth'
-  })
-}
-
 function Header(props) {
   const classes = useStyles();
 
@@ -57,7 +44,7 @@ function Header(props) {
     "home": {
       title: "About",
       active: false,
-      scrollTo: 'home',
+      scrollTo: 'about',
       viewHeight: 0
     },
     "projects": {
@@ -82,6 +69,24 @@ function Header(props) {
 
   function handleClose(){
     setAnchorEl(null);
+  }
+
+  function ScrollToSection(elementId) {
+    const headerElement = document.getElementById('header');
+    const headerOffset = headerElement.clientHeight;
+
+    const elementToScrollTo = document.getElementById(elementId);
+    if(elementToScrollTo){
+      const elementHeight = elementToScrollTo.getBoundingClientRect().top + window.pageYOffset;
+
+      window.scrollTo({
+        top: elementHeight - headerOffset,
+        behavior: 'smooth'
+      })
+    }
+    else{
+      window.location.href = "/#" + elementId;
+    }
   }
 
   return <Fragment>

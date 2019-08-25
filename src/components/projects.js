@@ -61,7 +61,7 @@ function Projects(props) {
                   <Typography variant='h5' gutterBottom>
                     {project.title}
                   </Typography>
-                  <Typography variant='body'>
+                  <Typography variant='body1'>
                     {project.description}
                   </Typography>
                 </CardContent>
