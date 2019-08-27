@@ -52,12 +52,16 @@ function Home(props) {
       <Typography align='center' variant="h3" className={classes.intro}>
         Full Stack Developer
       </Typography>
-      <Grid container>
+      <Grid container
+            justify="center"
+            alignItems="center"
+            spacing={10}>
         {Object.values(contacts).map((contact) =>
           <Grid item>
-            {contact.link}
-
-          </Grid>
+            <Card>
+              {contact.icon}
+            </Card>
+          </Grid>,
         )}
       </Grid>
     </Paper>
