@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import Header from '../components/layouts/Header'
 import Footer from '../components/layouts/Footer'
 
-import Home from '../components/home'
-import About from '../components/about'
-import Projects from '../components/projects'
-import Skills from '../components/skills'
+import Home from '../sections/home'
+import About from '../sections/about'
+import Projects from '../sections/projects'
+import Skills from '../sections/skills'
 
 import '../css/main.css'
 
