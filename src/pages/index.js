@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react'
+import makeStyles from '@material-ui/styles/makeStyles'
+
 import Header from '../components/layouts/Header'
 import Footer from '../components/layouts/Footer'
 
@@ -9,18 +11,21 @@ import Skills from '../sections/skills'
 
 import '../css/main.css'
 
-class IndexPage extends React.Component {
-  render() {
-    return <Fragment>
-      <Header/>
-      <Home id='home'/>
-      <About id='about'/>
-      <Projects id='projects'/>
-      <Skills id='skills'/>
-      <Footer/>
-    </Fragment>
+const useStyles = makeStyles({
+  root: {
+    overflowX: 'hidden'
   }
+})
 
+export default function IndexPage() {
+  const classes = useStyles();
+
+  return <div className={classes.root}>
+    <Header/>
+    <Home id='home'/>
+    <About id='about'/>
+    <Projects id='projects'/>
+    <Skills id='skills'/>
+    <Footer/>
+  </div>
 }
-
-export default IndexPage

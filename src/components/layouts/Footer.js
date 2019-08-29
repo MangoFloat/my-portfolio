@@ -16,15 +16,15 @@ function Footer(props) {
       <Grid container direction='row-reverse' style={{textAlign: "center"}}>
         <Grid item xs={12} sm={10} md={5} lg={4} xl={3}>
           <List dense={true}>
-            {Object.values(contacts).map((contact) =>
-              <ListItem divider>
+            {Object.entries(contacts).map(([key, value]) =>
+              <ListItem divider key={key}>
                 <ListItemIcon>
-                  {contact.icon}
+                  {value.icon}
                 </ListItemIcon>
-                <ListItemText primary={contact.title}/>
+                <ListItemText primary={value.title}/>
                 <ListItemSecondaryAction>
-                  <Tooltip title={contact.launchTooltip} placement='left'>
-                    <Link href={contact.link}>
+                  <Tooltip title={value.launchTooltip} placement='left'>
+                    <Link href={value.link}>
                       <OpenIcon/>
                     </Link>
                   </Tooltip>

@@ -46,20 +46,22 @@ function Home(props) {
   return <Fragment>
     <Paper id={props.id} className={classes.root}>
       <Avatar alt='June Jaictin' src={tempIcon} className={classes.avatar}/>
-      <Typography className={classes.title} align="center" variant="h1">
+      <Typography className={classes.title} align='center' variant='h1'>
         June Jaictin
       </Typography>
-      <Typography align='center' variant="h3" className={classes.intro}>
+      <Typography align='center' variant='h3' className={classes.intro}>
         Full Stack Developer
       </Typography>
       <Grid container
-            justify="center"
-            alignItems="center"
-            spacing={10}>
-        {Object.values(contacts).map((contact) =>
-          <Grid item>
+            justify='space-evenly'
+            alignItems='center'
+            spacing={10}
+            wrap='nowrap'
+            direction='row'>
+        {Object.entries(contacts).map(([key, value]) =>
+          <Grid zeroMinWidth={true} key={key} item>
             <Card>
-              {contact.icon}
+              {value.icon}
             </Card>
           </Grid>,
         )}

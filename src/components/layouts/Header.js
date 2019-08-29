@@ -92,11 +92,11 @@ function Header(props) {
           </Typography>
         </Grid>
         <Hidden xsDown={true}>
-          {Object.values(links).map((link) =>
-            <Grid item>
+          {Object.entries(links).map(([key, value]) =>
+            <Grid key={key} item>
               <Typography>
-                <Button onClick={() => {ScrollToSection(link.scrollTo)}} className={classes.links}>
-                  {link.title}
+                <Button onClick={() => {ScrollToSection(value.scrollTo)}} className={classes.links}>
+                  {value.title}
                 </Button>
               </Typography>
             </Grid>,
@@ -111,9 +111,9 @@ function Header(props) {
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={handleClose}>
-            {Object.values(links).map((link) =>
-              <MenuItem dense onClick={() => {ScrollToSection(link.scrollTo)}}>
-                {link.title}
+            {Object.entries(links).map(([key, value]) =>
+              <MenuItem key={key} dense onClick={() => {ScrollToSection(value.scrollTo)}}>
+                {value.title}
               </MenuItem>
             )}
           </Menu>
