@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
 import {
   Paper, Typography, Avatar,
-  SvgIcon, Card, Collapse,
-  Grid
+  Tooltip, Hidden, SvgIcon,
+  Grid, Button
 } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 
@@ -22,26 +22,46 @@ const useStyles = makeStyles({
   title: {
     paddingTop: 10,
     paddingBottom: 10,
-    fontSize: '7vw'
+    //fontSize: '6vh'
   },
   intro: {
-    fontSize: '3vw'
+    paddingBottom: 20,
+    //fontSize: '2vh'
   },
   avatar: {
-    height: '25vh',
-    width: '25vh',
+    height: 200,
+    width: 200,
     margin: 'auto'
+  },
+  contactLinks: {
+    height: '10vh',
+    width: '10vh',
+    margin: 'auto'
+  },
+  contactLinksContainer: {
+    paddingTop: 15,
+    display: 'grid',
+    justifyItems: 'center',
+    alignItems: 'center',
+    clipPath: 'inset(10% 44% 30% 40%)',
+    background: '#666666',
+    transition: 'all .2s ease-in-out',
+    '&:hover': {
+      clipPath: 'inset(10% 10% 0 10%)'
+    }
+  },
+  contactLinksImage: {
+    float: 'right',
+    marginRight: '4%',
+  },
+  contactLinksLink: {
+
   }
 });
 
 function Home(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
   const contacts = Contacts();
-
-  function expand() {
-    setExpanded(!expanded);
-  }
 
   return <Fragment>
     <Paper id={props.id} className={classes.root}>
@@ -52,20 +72,37 @@ function Home(props) {
       <Typography align='center' variant='h3' className={classes.intro}>
         Full Stack Developer
       </Typography>
-      <Grid container
-            justify='space-evenly'
-            alignItems='center'
-            spacing={10}
-            wrap='nowrap'
-            direction='row'>
-        {Object.entries(contacts).map(([key, value]) =>
-          <Grid zeroMinWidth={true} key={key} item>
-            <Card>
-              {value.icon}
-            </Card>
-          </Grid>,
-        )}
-      </Grid>
+      <Typography align='center' variant="body2">
+        • Fast learner.. blah blah blah bullshit.
+      </Typography>
+      <Hidden mdDown={true}>
+        <Grid container
+              justify='space-evenly'
+              alignItems='center'
+              wrap='nowrap'
+              direction='row'>
+          {Object.entries(contacts).map(([key, value]) =>
+            <Grid key={key} item sm>
+              <div className={classes.contactLinksContainer}>
+                <Tooltip placement='top' title={value.launchTooltip}>
+                  <Button
+                    href={value.link}
+                    size='large'
+                    className={classes.contactLinksImage}
+                    color='inherit'>
+                    <SvgIcon fontSize='large'>
+                      {value.icon}
+                    </SvgIcon>
+                  </Button>
+                </Tooltip>
+                <Typography variant='h6' className={classes.contactLinksLink}>
+                  {value.title}
+                </Typography>
+              </div>
+            </Grid>
+          )}
+        </Grid>
+      </Hidden>
     </Paper>
   </Fragment>
 

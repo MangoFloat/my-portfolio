@@ -34,9 +34,9 @@ function Header(props) {
 
   const links = {
     "home": {
-      title: "About",
+      title: "Home",
       active: false,
-      scrollTo: 'about',
+      scrollTo: 'home',
       viewHeight: 0
     },
     "projects": {
@@ -79,6 +79,7 @@ function Header(props) {
     else{
       window.location.href = "/#" + elementId;
     }
+    handleClose();
   }
 
   return <Fragment>
