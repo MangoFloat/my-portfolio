@@ -1,18 +1,24 @@
 import React, { Component, Fragment } from 'react'
 import {
-  Paper, Typography, Container
+  Paper, Typography, Card,
+  Grid
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles({
   root: {
-    background: 'linear-gradient(219deg, rgba(246, 246, 246, 0.02) 0%, rgba(246, 246, 246, 0.02) 20%,rgba(225, 225, 225, 0.02) 20%, rgba(225, 225, 225, 0.02) 40%,rgba(136, 136, 136, 0.02) 40%, rgba(136, 136, 136, 0.02) 60%,rgba(216, 216, 216, 0.02) 60%, rgba(216, 216, 216, 0.02) 80%,rgba(35, 35, 35, 0.02) 80%, rgba(35, 35, 35, 0.02) 100%),linear-gradient(299deg, rgba(213, 213, 213, 0.02) 0%, rgba(213, 213, 213, 0.02) 20%,rgba(150, 150, 150, 0.02) 20%, rgba(150, 150, 150, 0.02) 40%,rgba(161, 161, 161, 0.02) 40%, rgba(161, 161, 161, 0.02) 60%,rgba(186, 186, 186, 0.02) 60%, rgba(186, 186, 186, 0.02) 80%,rgba(28, 28, 28, 0.02) 80%, rgba(28, 28, 28, 0.02) 100%),linear-gradient(50deg, rgba(157, 157, 157, 0.02) 0%, rgba(157, 157, 157, 0.02) 16.667%,rgba(147, 147, 147, 0.02) 16.667%, rgba(147, 147, 147, 0.02) 33.334%,rgba(42, 42, 42, 0.02) 33.334%, rgba(42, 42, 42, 0.02) 50.001000000000005%,rgba(214, 214, 214, 0.02) 50.001%, rgba(214, 214, 214, 0.02) 66.668%,rgba(34, 34, 34, 0.02) 66.668%, rgba(34, 34, 34, 0.02) 83.33500000000001%,rgba(211, 211, 211, 0.02) 83.335%, rgba(211, 211, 211, 0.02) 100.002%),linear-gradient(278deg, rgba(79, 79, 79, 0.03) 0%, rgba(79, 79, 79, 0.03) 20%,rgba(217, 217, 217, 0.03) 20%, rgba(217, 217, 217, 0.03) 40%,rgba(5, 5, 5, 0.03) 40%, rgba(5, 5, 5, 0.03) 60%,rgba(200, 200, 200, 0.03) 60%, rgba(200, 200, 200, 0.03) 80%,rgba(125, 125, 125, 0.03) 80%, rgba(125, 125, 125, 0.03) 100%),linear-gradient(274deg, rgba(235, 235, 235, 0.03) 0%, rgba(235, 235, 235, 0.03) 12.5%,rgba(100, 100, 100, 0.03) 12.5%, rgba(100, 100, 100, 0.03) 25%,rgba(44, 44, 44, 0.03) 25%, rgba(44, 44, 44, 0.03) 37.5%,rgba(228, 228, 228, 0.03) 37.5%, rgba(228, 228, 228, 0.03) 50%,rgba(36, 36, 36, 0.03) 50%, rgba(36, 36, 36, 0.03) 62.5%,rgba(72, 72, 72, 0.03) 62.5%, rgba(72, 72, 72, 0.03) 75%,rgba(30, 30, 30, 0.03) 75%, rgba(30, 30, 30, 0.03) 87.5%,rgba(109, 109, 109, 0.03) 87.5%, rgba(109, 109, 109, 0.03) 100%),linear-gradient(90deg, hsl(28,0%,14%),hsl(28,0%,14%))',
+    background: 'linear-gradient(90deg, rgba(181, 181, 181, 0.07) 0%, rgba(181, 181, 181, 0.07) 55%,rgba(80, 80, 80, 0.07) 55%, rgba(80, 80, 80, 0.07) 100%),linear-gradient(135deg, rgba(251, 251, 251, 0.02) 0%, rgba(251, 251, 251, 0.02) 31%,rgba(131, 131, 131, 0.02) 31%, rgba(131, 131, 131, 0.02) 100%),linear-gradient(45deg, rgba(17, 17, 17, 0.09) 0%, rgba(17, 17, 17, 0.09) 69%,rgba(171, 171, 171, 0.09) 69%, rgba(171, 171, 171, 0.09) 100%),linear-gradient(0deg, rgba(76, 76, 76, 0.06) 0%, rgba(76, 76, 76, 0.06) 48%,rgba(46, 46, 46, 0.06) 48%, rgba(46, 46, 46, 0.06) 100%),linear-gradient(90deg, rgba(65, 65, 65, 0.09) 0%, rgba(65, 65, 65, 0.09) 25%,rgba(98, 98, 98, 0.09) 25%, rgba(98, 98, 98, 0.09) 100%),linear-gradient(45deg, rgba(233, 233, 233, 0.1) 0%, rgba(233, 233, 233, 0.1) 65%,rgba(184, 184, 184, 0.1) 65%, rgba(184, 184, 184, 0.1) 100%),linear-gradient(90deg, rgba(140, 140, 140, 0.03) 0%, rgba(140, 140, 140, 0.03) 39%,rgba(249, 249, 249, 0.03) 39%, rgba(249, 249, 249, 0.03) 100%),linear-gradient(90deg, rgb(0, 0, 0),rgb(2, 2, 2))',
     color: 'white',
-    marginTop: 5
+    marginTop: 5,
+    minHeight: '93vh'
   },
   title: {
     paddingTop: 10,
     paddingBottom: 10,
+  },
+  skills: {
+    marginLeft: 5,
+    marginRight: 5
   }
 });
 
@@ -21,16 +27,8 @@ function Skills(props) {
 
   return <Fragment>
     <Paper id={props.id} className={classes.root}>
-      <Typography className={classes.title} align="center" variant="h5">
+      <Typography className={classes.title} align="center" variant="h3">
         Skills
-      </Typography>
-      <Typography align='center' variant="body2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus ligula et accumsan finibus.
-        Pellentesque pretium ex vel tellus placerat dictum. Quisque nec euismod lacus. Praesent maximus augue ut
-        sapien dictum, nec dignissim massa dignissim. Nullam tincidunt ligula ipsum, ut dapibus tellus porttitor eu.
-        Mauris vestibulum est ut augue condimentum, in tincidunt nisi commodo. Phasellus vulputate vulputate luctus.
-        Nullam fermentum, sapien nec ornare vestibulum, enim urna cursus ipsum, quis vulputate massa urna aliquam
-        felis. Donec vitae tortor dolor.
       </Typography>
     </Paper>
   </Fragment>
