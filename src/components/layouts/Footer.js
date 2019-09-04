@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import OpenIcon from '@material-ui/icons/Launch'
-import Contacts from '../contacts'
+import GetContacts from '../contacts'
 
 const useStyles = makeStyles({
   root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 function Footer(props) {
   const classes = useStyles();
-  const contacts = Contacts();
+  const contacts = GetContacts ();
 
   return <Fragment>
     <Paper className={classes.root}>

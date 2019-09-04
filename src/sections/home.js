@@ -8,8 +8,7 @@ import { makeStyles } from '@material-ui/styles'
 
 import tempIcon from '../images/gatsby-icon.png'
 
-import Contacts from '../components/contacts'
-import Skills from "./skills"
+import GetContacts from '../components/contacts'
 
 const useStyles = makeStyles({
   root: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles({
     //fontSize: '2vh'
   },
   intro: {
-
+    marginBottom: 25
   },
   avatar: {
     height: 200,
@@ -56,7 +55,7 @@ const useStyles = makeStyles({
     background: '#666666',
     transition: 'all .2s ease-in-out',
     '&:hover': {
-      clipPath: 'inset(10% 9% 0 9%)'
+      clipPath: 'inset(0 0 0 0)'
     }
   },
   contactLinksImage: {
@@ -76,7 +75,7 @@ const useStyles = makeStyles({
 
 function Home(props) {
   const classes = useStyles();
-  const contacts = Contacts();
+  const contacts = GetContacts ();
 
   return <Fragment>
     <Paper id='home' className={classes.root}>
@@ -115,7 +114,7 @@ function Home(props) {
               </div>
             </Grid>
           )}
-  </Grid>
+        </Grid>
       </Hidden>
     </Paper>
   </Fragment>
