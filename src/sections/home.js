@@ -1,14 +1,15 @@
 import React, { Fragment } from "react"
 import {
-  Paper, Typography, Avatar,
+  Paper, Typography, Card,
   Tooltip, Hidden, SvgIcon,
-  Grid, Button
+  Grid, Button, Fade
 } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 
 import tempIcon from '../images/gatsby-icon.png'
 
 import Contacts from '../components/contacts'
+import Skills from "./skills"
 
 const useStyles = makeStyles({
   root: {
@@ -16,25 +17,34 @@ const useStyles = makeStyles({
     color: 'white',
     marginTop: 5,
     minHeight: '93vh',
+    margin: 'auto',
+    maxWidth: '80vW'
   },
   title: {
     paddingTop: 10,
     paddingBottom: 10,
-    //fontSize: '6vh'
+    '&:hover': {
+
+    }
   },
-  intro: {
+  subTitle: {
     paddingBottom: 20,
     //fontSize: '2vh'
   },
+  intro: {
+
+  },
   avatar: {
-    paddingTop: 15,
     height: 200,
     width: 200,
-    margin: 'auto'
+    paddingTop: 30,
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   contactLinks: {
     height: '10vh',
-    width: '10vh',
+    minWidth: '10vh',
     margin: 'auto'
   },
   contactLinksContainer: {
@@ -55,6 +65,12 @@ const useStyles = makeStyles({
   },
   contactLinksLink: {
     // TODO: Style link
+  },
+  contactsGrid: {
+
+  },
+  testing1: {
+    animationDelay: '2s'
   }
 });
 
@@ -63,21 +79,22 @@ function Home(props) {
   const contacts = Contacts();
 
   return <Fragment>
-    <Paper id={props.id} className={classes.root}>
-      <Avatar alt='June Jaictin' src={tempIcon} className={classes.avatar}/>
+    <Paper id='home' className={classes.root}>
+      <img className={classes.avatar} src={tempIcon} alt='Test'/>
       <Typography className={classes.title} align='center' variant='h1'>
         June Jaictin
       </Typography>
-      <Typography align='center' variant='h3' className={classes.intro}>
+      <Typography align='center' variant='h3' className={classes.subTitle}>
         Full Stack Developer
       </Typography>
-      <Typography align='center' variant="body2">
+      <Typography align='center' variant="body2" className={classes.intro}>
         • Fast learner.. blah blah blah bullshit.
       </Typography>
       <Hidden mdDown={true}>
-        <Grid container
-              justify="center"
-              alignItems="center">
+        <Grid
+          container
+          justify='space-evenly'
+          alignItems='center'>
           {Object.entries(contacts).map(([key, value]) =>
             <Grid key={key} item sm>
               <div className={classes.contactLinksContainer}>
@@ -98,7 +115,7 @@ function Home(props) {
               </div>
             </Grid>
           )}
-        </Grid>
+  </Grid>
       </Hidden>
     </Paper>
   </Fragment>

@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     top: 0,
     position: 'sticky',
     zIndex: 1,
-    boxShadow: '0 0.3em 1em black',
+    boxShadow: '0 0.1em 0.5em black',
   },
   links: {
     margin: 5,
@@ -105,6 +105,7 @@ function Header(props) {
             <Grid key={key} item>
               <Typography>
                 <Button
+                  href=''
                   onClick={() => {ScrollToSection(value.scrollTo)}}
                   className={classes.links}>
                   {value.title}
