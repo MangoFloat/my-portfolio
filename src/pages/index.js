@@ -4,7 +4,7 @@ import makeStyles from '@material-ui/styles/makeStyles'
 import Header from '../components/layouts/Header'
 import Footer from '../components/layouts/Footer'
 
-import Home from '../sections/home'
+import About from '../sections/about'
 import Projects from '../sections/projects'
 import Skills from '../sections/skills'
 
@@ -12,7 +12,7 @@ import '../css/main.css'
 
 const useStyles = makeStyles({
   root: {
-    //overflowX: 'hidden' // This is necessary because Grid with spacing={12} (in Home section) extends beyond the parent, exposing the horizontal scroll bar.
+    //overflowX: 'hidden' // This is necessary because Grid with spacing={12} (in About section) extends beyond the parent, exposing the horizontal scroll bar.
   }
 })
 
@@ -21,9 +21,8 @@ export default function IndexPage() {
 
   return <div className={classes.root}>
     <Header/>
-    <Home id='home'/>
+    <About id='about'/>
     <Projects id='projects'/>
     <Skills id='skills'/>
-    <Footer/>
   </div>
 }
