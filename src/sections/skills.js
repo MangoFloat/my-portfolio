@@ -41,8 +41,8 @@ const useStyles = makeStyles({
   skill: {
     backgroundColor: '#002927',
     color: 'white',
-    minWidth: 200,
-    margin: 5,
+    minWidth: 170,
+    margin: 15,
     transition: "0.1s",
     '&:hover': {
       boxShadow: '0 0.1em 0.75em black',
@@ -52,7 +52,8 @@ const useStyles = makeStyles({
   },
   skillIcon: {
     display: 'block',
-    margin: 'auto'
+    margin: 'auto',
+    paddingBottom: 8
   }
 });
 
