@@ -9,33 +9,31 @@ import { makeStyles } from '@material-ui/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import GitHubIcon from "../components/custom_icons/github"
 import BackgroundImage from '../images/background2.png';
-import testImg from '../images/background5.png';
+import testImg from '../images/background10.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#2b2b2b',
-    backgroundImage: `url(${BackgroundImage})`,
-    color: 'white',
-    marginTop: 15,
-    marginLeft: 165,
-    margin: 'auto'
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: 165
+    },
+    margin: 'auto',
+    backgroundImage: `url(${BackgroundImage})`
   },
   title: {
     paddingTop: 10,
     paddingBottom: 10,
+    borderBottom: '5px solid',
+    borderTop: '5px solid',
   },
   cardContainer: {
     margin: 50,
     height: 200,
     display: 'flex',
-    backgroundColor: '#001716',
     backgroundImage: `url(${testImg})`,
-    color: 'white',
     transition: "0.1s",
     '&:hover': {
       boxShadow: '0 0.1em 0.75em black',
       transform: 'translateY(-0.25em)',
-      backgroundColor: '#001e1d',
     },
   },
   cardContent: {
@@ -58,7 +56,7 @@ const useStyles = makeStyles({
   avatar: {
     backgroundColor: 'black',
   },
-});
+}));
 
 // TODO: Add projects here.
 const projects = {
@@ -85,6 +83,12 @@ const projects = {
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
     imageSource: require('../images/gatsby-astronaut.png'),
     imageTitle: 'Gatsby',
+  },
+  project5: {
+    title: 'Gatsby',
+    description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
+    imageSource: require('../images/gatsby-astronaut.png'),
+    imageTitle: 'Gatsby',
   }
 }
 
@@ -92,12 +96,10 @@ function Projects(props) {
   const classes = useStyles();
 
   return <Fragment>
-    <Paper id='projects' className={classes.root}>
-      <Typography className={classes.title} align="center" variant="h3">
+    <div id='projects' className={classes.root}>
+      <Typography className={classes.title} align="center" variant="h2">
         Projects
       </Typography>
-      <hr/>
-      <Hidden xsDown={true}>
         <Grid
         container
         justify='center'
@@ -122,8 +124,7 @@ function Projects(props) {
           </Grid>
         )}
       </Grid>
-      </Hidden>
-    </Paper>
+    </div>
   </Fragment>
 }
 

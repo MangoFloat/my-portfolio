@@ -1,50 +1,75 @@
 import React, { Component, Fragment } from "react"
 import {
-  Typography, Button, Paper,
-  Grid, SvgIcon, Hidden,
-  Menu, MenuItem, Link,
-  Slide
+  Typography, Drawer, Hidden,
+  IconButton
 } from "@material-ui/core"
-import Scrollspy from 'react-scrollspy'
+import { Menu } from '@material-ui/icons'
+import ScrollSpy from 'react-scrollspy'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { makeStyles } from "@material-ui/core/styles/index"
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import BackgroundImage from '../../images/background3.png';
+import BackgroundImage from '../../images/background10.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#111111',
     backgroundImage: `url(${BackgroundImage})`,
-    color: 'white',
-    top: 0,
-    left: 0,
     position: 'fixed',
-    zIndex: 1,
     height: '100%',
     width: 165,
-    boxShadow: '0 0.1em 0.5em black',
   },
-  links: {
-    color: 'white',
-    listStyle: 'none'
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: 165,
+      flexShrink: 0,
+    },
+  },
+  drawerContainer: {
+    width: 165
+  },
+  menuButton: {
+    position: 'fixed',
+    marginLeft: 2,
+    color: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
+    backgroundColor: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  linksContainer: {
+    margin: 0,
+    padding: 0,
+    display: 'table'
   },
   link: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    minWidth: 100,
-    color: 'white'
+    color: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
+    width: '100%',
+    minHeight: 50,
+    display: 'table',
+    textAlign: 'center',
+    lineHeight: '150%',
+    transition: 'border-width 0.3s ease-in-out, background 0.3s ease-out'
+  },
+  linkText: {
+    display: 'block',
+    height: '100%'
   },
   titleHeader: {
     paddingLeft: 15,
     paddingTop: 3
   },
   active: {
-    borderBottom: '5px solid',
+    borderLeft: '5px solid',
+    backgroundColor: theme.palette.type === 'dark' ? '#212121' : '#a8a8a8'
   }
-});
+}));
 
 function Header(props) {
   const classes = useStyles();
+  const { container } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  function handleDrawerToggle() {
+    setMobileOpen(!mobileOpen);
+  }
 
   const links = {
     'about': {
@@ -61,35 +86,68 @@ function Header(props) {
     }
   }
 
+  const drawer = <Fragment>
+    <Typography
+      onClick={() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })}
+      variant="h3">
+      June Jaictin
+    </Typography>
+    <ScrollSpy
+      className={classes.linksContainer}
+      items={Object.keys(links)}
+      currentClassName={classes.active}>
+      {Object.entries(links).map(([key, value]) =>
+        <li
+          className={classes.link}
+          onClick={handleDrawerToggle}>
+          <AnchorLink
+            href={'#' + value.scrollTo}
+            offset='-1'
+            className={classes.link}>
+            {value.title}
+          </AnchorLink>
+        </li>
+      )}
+    </ScrollSpy>
+  </Fragment>
+
   return <Fragment>
-    <div id='header' className={classes.root}>
-      <Typography className={classes.titleHeader} variant="h4">
-        <Link
-          color='inherit'
-          underline='none'
-          style={{cursor: 'pointer'}}
-          onClick={() => window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          })}>
-          June Jaictin
-        </Link>
-      </Typography>
-      <Scrollspy
-        className={classes.links}
-        items={Object.keys(links)}
-        currentClassName={classes.active}>
-        {Object.entries(links).map(([key, value]) =>
-          <li>
-            <AnchorLink
-              href={'#' + value.scrollTo}
-              className={classes.link}>
-              {value.title}
-            </AnchorLink>
-          </li>
-        )}
-      </Scrollspy>
-    </div>
+    <IconButton
+      color='inherit'
+      aria-label='open drawer'
+      edge='start'
+      onClick={handleDrawerToggle}
+      className={classes.menuButton}>
+        <Menu/>
+    </IconButton>
+    <Hidden smUp>
+      <Drawer
+        container={container}
+        anchor='left'
+        variant='temporary'
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}>
+        {drawer}
+      </Drawer>
+    </Hidden>
+    <Hidden xsDown implementation="css">
+      <Drawer
+        classes={{
+          paper: classes.drawerContainer,
+        }}
+        variant="permanent"
+        open
+        anchor='left'
+      >
+        {drawer}
+      </Drawer>
+    </Hidden>
   </Fragment>
 
 

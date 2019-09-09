@@ -6,31 +6,27 @@ import {
 import { makeStyles } from '@material-ui/styles'
 import GetSkills from '../components/skills'
 import BackgroundImage from '../images/background2.png';
-import testImg from '../images/background5.png';
+import testImg from '../images/background.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#2b2b2b',
-    backgroundImage: `url(${BackgroundImage})`,
-    color: 'white',
-    marginTop: 15,
-    marginLeft: 165,
-    margin: 'auto'
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: 165
+    },
+    margin: 'auto',
+    backgroundImage: `url(${BackgroundImage})`
   },
   title: {
     paddingTop: 10,
     paddingBottom: 10,
+    borderBottom: '5px solid',
+    borderTop: '5px solid',
   },
   skillsContainer: {
-    backgroundColor: '#001716',
     backgroundImage: `url(${testImg})`,
     margin: 25,
     padding: 25,
-    color: 'white',
     transition: '0.3s',
-    '&:hover': {
-      backgroundColor: '#001e1d',
-    },
   },
   skillsCategory: {
     paddingLeft: 15
@@ -39,15 +35,12 @@ const useStyles = makeStyles({
     marginTop: 25,
   },
   skill: {
-    backgroundColor: '#002927',
-    color: 'white',
     minWidth: 170,
     margin: 15,
     transition: "0.1s",
     '&:hover': {
       boxShadow: '0 0.1em 0.75em black',
       transform: 'translateY(-0.25em)',
-      backgroundColor: '#00312f',
     },
   },
   skillIcon: {
@@ -55,14 +48,14 @@ const useStyles = makeStyles({
     margin: 'auto',
     paddingBottom: 8
   }
-});
+}));
 
 function Skills(props) {
   const classes = useStyles();
   const allSkills = GetSkills();
 
   return <Fragment>
-    <Paper
+    <div
       id='skills'
       className={classes.root}>
       <Typography
@@ -71,7 +64,6 @@ function Skills(props) {
         variant='h3'>
         Skills
       </Typography>
-      <hr/>
       {Object.entries(allSkills).map(([skill, skillInfo]) =>
         <Card
           raised={true}
@@ -109,7 +101,7 @@ function Skills(props) {
       <Typography variant='body2'>
         Test
       </Typography>
-    </Paper>
+    </div>
   </Fragment>
 }
 
