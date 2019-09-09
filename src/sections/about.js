@@ -6,18 +6,18 @@ import {
 } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 
-import tempIcon from '../images/gatsby-icon.png'
+import tempIcon from '../images/gatsby-icon.webp'
 
 import GetContacts from '../components/contacts'
-import BackgroundImage from '../images/background2.png'
-import testImg from '../images/background5.png'
+import BackgroundImageDark from '../images/background2.webp'
+import BackgroundImageLight from '../images/background3.webp'
 
 const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up('sm')]: {
       marginLeft: 165
     },
-    backgroundImage: `url(${BackgroundImage})`,
+    backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
     paddingTop: '5%',
     minHeight: '100vh'
   },
@@ -74,7 +74,7 @@ function About(props) {
 
   return <Fragment>
     <div id='about' className={classes.root}>
-      <img className={classes.avatar} src={tempIcon} alt='Test'/>
+      <img className={classes.avatar} src={tempIcon} alt='June Jaictin Logo'/>
       <Typography className={classes.title} align='center' variant='h1'>
         June Jaictin
       </Typography>
@@ -87,7 +87,7 @@ function About(props) {
         alignItems='center'>
       {Object.entries(contacts).map(([key, value]) =>
         <Grid item>
-          <Button>
+          <Button aria-label={value.name}>
             <SvgIcon fontSize='large'>
               {value.icon}
             </SvgIcon>

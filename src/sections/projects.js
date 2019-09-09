@@ -8,8 +8,9 @@ import {
 import { makeStyles } from '@material-ui/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import GitHubIcon from "../components/custom_icons/github"
-import BackgroundImage from '../images/background2.png';
-import testImg from '../images/background10.png';
+import BackgroundImageDark from '../images/background2.webp'
+import BackgroundImageLight from '../images/background3.webp'
+import testImg from '../images/background8.webp';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,13 +18,14 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 165
     },
     margin: 'auto',
-    backgroundImage: `url(${BackgroundImage})`
+    backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
   },
   title: {
+    backgroundColor: theme.palette.type == 'dark' ? '#252525' : '#c9c9c9',
     paddingTop: 10,
     paddingBottom: 10,
-    borderBottom: '5px solid',
-    borderTop: '5px solid',
+    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
+    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
   },
   cardContainer: {
     margin: 50,
@@ -63,31 +65,36 @@ const projects = {
   project1: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/gatsby-icon.webp'),
+    imageSourceAlt: require('../images/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project2: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-astronaut.png'),
+    imageSource: require('../images/gatsby-astronaut.webp'),
+    imageSourceAlt: require('../images/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project3: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/gatsby-icon.webp'),
+    imageSourceAlt: require('../images/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project4: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-astronaut.png'),
+    imageSource: require('../images/gatsby-astronaut.webp'),
+    imageSourceAlt: require('../images/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project5: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-astronaut.png'),
+    imageSource: require('../images/gatsby-astronaut.webp'),
+    imageSourceAlt: require('../images/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   }
 }

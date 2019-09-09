@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from "react"
 import {
   Typography, Drawer, Hidden,
-  IconButton
+  IconButton, Button
 } from "@material-ui/core"
 import { Menu } from '@material-ui/icons'
 import ScrollSpy from 'react-scrollspy'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { makeStyles } from "@material-ui/core/styles/index"
-import BackgroundImage from '../../images/background10.png';
+import BackgroundImage from '../../images/background10.webp';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +27,8 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     position: 'fixed',
-    marginLeft: 2,
+    marginLeft: 10,
+    marginTop: 8,
     color: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
     backgroundColor: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
     [theme.breakpoints.up('sm')]: {
@@ -53,8 +54,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%'
   },
   titleHeader: {
-    paddingLeft: 15,
-    paddingTop: 3
+    textAlign: 'center'
   },
   active: {
     borderLeft: '5px solid',
@@ -88,6 +88,7 @@ function Header(props) {
 
   const drawer = <Fragment>
     <Typography
+      className={classes.titleHeader}
       onClick={() => window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -112,6 +113,9 @@ function Header(props) {
         </li>
       )}
     </ScrollSpy>
+    <Button aria-label='Toggle theme' onClick={props.onToggleTheme}>
+      Toggle Theme
+    </Button>
   </Fragment>
 
   return <Fragment>

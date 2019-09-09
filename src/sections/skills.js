@@ -5,8 +5,9 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import GetSkills from '../components/skills'
-import BackgroundImage from '../images/background2.png';
-import testImg from '../images/background.png';
+import BackgroundImageDark from '../images/background2.webp'
+import BackgroundImageLight from '../images/background3.webp'
+import testImg from '../images/background8.webp';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,13 +15,14 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 165
     },
     margin: 'auto',
-    backgroundImage: `url(${BackgroundImage})`
+    backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
   },
   title: {
+    backgroundColor: theme.palette.type == 'dark' ? '#252525' : '#c9c9c9',
     paddingTop: 10,
     paddingBottom: 10,
-    borderBottom: '5px solid',
-    borderTop: '5px solid',
+    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
+    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
   },
   skillsContainer: {
     backgroundImage: `url(${testImg})`,
@@ -91,7 +93,7 @@ function Skills(props) {
                     {skills.title}
                   </Typography>
                   <hr/>
-                  <img className={classes.skillIcon} width={100} src={require('../images/gatsby-icon.png')}/>
+                  <img className={classes.skillIcon} width={100} src={require('../images/gatsby-icon.webp')} alt={require('../images/gatsby-icon.png')}/>
                 </Card>
               </Grid>
             )}

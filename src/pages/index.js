@@ -1,36 +1,57 @@
-import React, { Fragment } from 'react'
-import { Button } from '@material-ui/core'
-import { createMuiTheme } from '@material-ui/core/styles'
-import { ThemeProvider } from '@material-ui/styles'
-import CssBaseline from "@material-ui/core/CssBaseline";
+import React from "react"
+import { createMuiTheme } from "@material-ui/core/styles"
+import { ThemeProvider } from "@material-ui/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
 
-import { grey } from '@material-ui/core/colors'
+import { Helmet } from "react-helmet"
 
-import Header from '../components/layouts/Header'
-import Footer from '../components/layouts/Footer'
-import About from '../sections/about'
-import Projects from '../sections/projects'
-import Skills from '../sections/skills'
+import Header from "../components/layouts/Header"
+import About from "../sections/about"
+import Projects from "../sections/projects"
+import Skills from "../sections/skills"
 
 export default function IndexPage() {
-  let theme = createMuiTheme({
-    palette: {
-      primary: {
-        light: '#6a6a6a',
-        main: '#131313',
-        dark: '#0b0b0b',
-        contrastText: '#fff',
+  function getTheme(type) {
+    return {
+      palette: {
+        primary: {
+          light: "#494949",
+          main: "#313131",
+          dark: "#171717",
+          contrastText: "#fff",
+        },
+        background: {
+          default: type == "dark" ? "#0e0e0e" : "#f9f9f9",
+          paper: type == "dark" ? "#252525" : "#c9c9c9",
+        },
+        type: type,
       },
-      background: {
-      },
-      type: 'dark'
-    },
-  });
+    }
+  }
+
+  const [theme, setTheme] = React.useState(getTheme("dark"))
+
+  const toggleTheme = () => {
+    let newPaletteType = theme.palette.type == "light" ? "dark" : "light"
+    let newTheme = getTheme(newPaletteType)
+    newTheme.palette.type = newPaletteType
+    setTheme(newTheme)
+  }
+
+  const muiTheme = createMuiTheme(theme)
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={muiTheme}>
+      <Helmet
+        title='June Jaictin | Full Stack Developer'
+        meta={[
+          { name: "description", content: "June Jaictin's Portfolio" },
+          { name: "charset", content: "utf-8" },
+        ]}>
+        <html lang='en'/>
+      </Helmet>
       <CssBaseline/>
-      <Header/>
+      <Header onToggleTheme={toggleTheme}/>
       <About id='about'/>
       <Projects id='projects'/>
       <Skills id='skills'/>
