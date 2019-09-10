@@ -59,6 +59,14 @@ const useStyles = makeStyles(theme => ({
   active: {
     borderLeft: '5px solid',
     backgroundColor: theme.palette.type === 'dark' ? '#212121' : '#a8a8a8'
+  },
+  toggleThemeButton: {
+    position: 'relative',
+    bottom: 0,
+    display: 'block',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    textTransform: 'none'
   }
 }));
 
@@ -113,7 +121,7 @@ function Header(props) {
         </li>
       )}
     </ScrollSpy>
-    <Button aria-label='Toggle theme' onClick={props.onToggleTheme}>
+    <Button className={classes.toggleThemeButton} aria-label='Toggle theme' onClick={props.onToggleTheme}>
       Toggle Theme
     </Button>
   </Fragment>

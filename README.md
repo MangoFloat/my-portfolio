@@ -1,1 +1,4 @@
-# my-portfolio
+June Jaictin Portfolio
+
+- Using GitHub pages.
+

@@ -22,7 +22,7 @@ export default function IndexPage() {
         },
         background: {
           default: type == "dark" ? "#0e0e0e" : "#f9f9f9",
-          paper: type == "dark" ? "#252525" : "#c9c9c9",
+          paper: type == "dark" ? "#313131" : "#c9c9c9",
         },
         type: type,
       },

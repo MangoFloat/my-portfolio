@@ -31,14 +31,16 @@ const useStyles = makeStyles(theme => ({
     transition: '0.3s',
   },
   skillsCategory: {
-    paddingLeft: 15
+    paddingLeft: 0
   },
   grid: {
-    marginTop: 25,
+    marginTop: 10,
   },
   skill: {
-    minWidth: 170,
-    margin: 15,
+    minWidth: 160,
+    height: 150,
+    margin: 7,
+    paddingBottom: 10,
     transition: "0.1s",
     '&:hover': {
       boxShadow: '0 0.1em 0.75em black',
@@ -48,7 +50,6 @@ const useStyles = makeStyles(theme => ({
   skillIcon: {
     display: 'block',
     margin: 'auto',
-    paddingBottom: 8
   }
 }));
 
@@ -72,14 +73,15 @@ function Skills(props) {
           className={classes.skillsContainer}>
           <Typography
             className={classes.skillsCategory}
+            align='center'
             variant='h4'>
             {skillInfo.title}
           </Typography>
           <hr/>
           <Grid
             className={classes.grid}
-            justify='space-evenly'
-            alignItems='center'
+            justify='center'
+            alignContent='flex-start'
             container>
             {Object.entries(skillInfo.skills).map(([skillInfoKey, skills]) =>
               <Grid
@@ -93,7 +95,7 @@ function Skills(props) {
                     {skills.title}
                   </Typography>
                   <hr/>
-                  <img className={classes.skillIcon} width={100} src={require('../images/gatsby-icon.webp')} alt={require('../images/gatsby-icon.png')}/>
+                  <img className={classes.skillIcon} width={100} src={skills.icon} alt={require('../images/gatsby-icon.png')}/>
                 </Card>
               </Grid>
             )}
