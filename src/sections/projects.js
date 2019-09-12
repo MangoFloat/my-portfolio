@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
   },
   title: {
-    backgroundColor: theme.palette.type == 'dark' ? '#252525' : '#c9c9c9',
+    backgroundColor: theme.palette.type == 'dark' ? '#121212' : '#eeeeee',
     paddingTop: 10,
     paddingBottom: 10,
-    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
-    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
+    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
+    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
   },
   cardContainer: {
     margin: 50,
@@ -104,8 +104,11 @@ function Projects(props) {
 
   return <Fragment>
     <div id='projects' className={classes.root}>
-      <Typography className={classes.title} align="center" variant="h2">
-        Projects
+      <Typography
+        className={classes.title}
+        align="center"
+        variant="h2">
+        Projects(Under construction 🐵)
       </Typography>
         <Grid
         container

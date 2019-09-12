@@ -18,11 +18,11 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
   },
   title: {
-    backgroundColor: theme.palette.type == 'dark' ? '#252525' : '#c9c9c9',
+    backgroundColor: theme.palette.type == 'dark' ? '#121212' : '#eeeeee',
     paddingTop: 10,
     paddingBottom: 10,
-    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
-    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#c9c9c9' : '#252525'),
+    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
+    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
   },
   skillsContainer: {
     backgroundImage: `url(${testImg})`,
@@ -66,10 +66,11 @@ function Skills(props) {
         className={classes.title}
         align='center'
         variant='h2'>
-        Skills
+        Skills(Under construction 🐵)
       </Typography>
       {Object.entries(allSkills).map(([skill, skillInfo]) =>
         <Card
+          key={skill}
           raised={true}
           className={classes.skillsContainer}>
           <Typography
@@ -86,6 +87,7 @@ function Skills(props) {
             container>
             {Object.entries(skillInfo.skills).map(([skillInfoKey, skills]) =>
               <Grid
+                key={skillInfoKey}
                 item>
                 <Card
                   className={classes.skill}

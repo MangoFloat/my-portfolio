@@ -1,26 +1,21 @@
-import React, { Component, Fragment } from "react"
+import React, { Fragment } from "react"
 import {
   Typography, Drawer, Hidden,
-  IconButton, Button
+  IconButton, Button, SvgIcon
 } from "@material-ui/core"
-import { Menu } from '@material-ui/icons'
-import ScrollSpy from 'react-scrollspy'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { Menu } from "@material-ui/icons"
+import ScrollSpy from "react-scrollspy"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 import { makeStyles } from "@material-ui/core/styles/index"
-import BackgroundImage from '../../images/backgrounds/background10.webp';
+
+import BackgroundImage from "../../images/backgrounds/background10.webp"
+import BarChartIcon from "../custom_icons/bar-chart"
+import InfoChartIcon from "../custom_icons/info"
+import OpenFolderIcon from "../custom_icons/open-folder"
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: `url(${BackgroundImage})`,
-    position: 'fixed',
-    height: '100%',
-    width: 165,
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: 165,
-      flexShrink: 0,
-    },
   },
   drawerContainer: {
     width: 165
@@ -31,35 +26,48 @@ const useStyles = makeStyles(theme => ({
     marginRight: 10,
     marginTop: 8,
     color: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
-    backgroundColor: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
+    //backgroundColor: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
   linksContainer: {
+    borderTop: '1px solid',
+    borderBottom: '1px solid',
+    marginTop: 5,
+    marginBottom: 5,
     margin: 0,
     padding: 0,
     display: 'table'
   },
   link: {
-    color: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
-    width: '100%',
-    minHeight: 50,
-    display: 'table',
-    textAlign: 'center',
-    lineHeight: '150%',
-    transition: 'border-width 0.3s ease-in-out, background 0.3s ease-out'
+    padding: 0,
+    height: 45,
+    transition: '0.1s',
+    '&:hover': {
+      backgroundColor: theme.palette.type === 'dark' ? '#1d1d1d' : '#a8a8a8'
+    }
   },
-  linkText: {
+  linkAnchor: {
+    boxSizing: 'content-box',
     display: 'block',
-    height: '100%'
+    color: theme.palette.type === 'dark' ? '#f0f0f0' : '#1b1b1b',
+    textDecoration: 'none',
+    lineHeight: 3
+  },
+  linkI: {
+    position: 'relative',
+    padding: '0 15px'
+  },
+  linkSpan: {
+    boxSizing: 'inherit'
   },
   titleHeader: {
     textAlign: 'center'
   },
   active: {
-    borderLeft: '5px solid',
-    backgroundColor: theme.palette.type === 'dark' ? '#212121' : '#a8a8a8'
+    borderLeft: '3px solid',
+    backgroundColor: theme.palette.type === 'dark' ? '#1d1d1d' : '#a8a8a8'
   },
   toggleThemeButton: {
     position: 'relative',
@@ -84,14 +92,17 @@ function Header(props) {
     'about': {
       title: 'About',
       scrollTo: 'about',
+      linkIcon: InfoChartIcon(),
     },
     'projects': {
       title: 'Projects',
       scrollTo: 'projects',
+      linkIcon: OpenFolderIcon()
     },
     'skills': {
       title: 'Skills',
       scrollTo: 'skills',
+      linkIcon: BarChartIcon()
     }
   }
 
@@ -111,13 +122,15 @@ function Header(props) {
       currentClassName={classes.active}>
       {Object.entries(links).map(([key, value]) =>
         <li
-          className={classes.link}
-          onClick={handleDrawerToggle}>
+          key={key}
+          onClick={handleDrawerToggle}
+          className={classes.link}>
           <AnchorLink
             href={'#' + value.scrollTo}
             offset='-1'
-            className={classes.link}>
-            {value.title}
+            className={classes.linkAnchor}>
+            <i className={classes.linkI}>{value.linkIcon}</i>
+            <span className={classes.linkSpan}>{value.title}</span>
           </AnchorLink>
         </li>
       )}
@@ -131,7 +144,8 @@ function Header(props) {
     </Button>
   </Fragment>
 
-  return <Fragment>
+  return <div
+    className={classes.root}>
     <IconButton
       color='inherit'
       aria-label='open drawer'
@@ -158,14 +172,14 @@ function Header(props) {
         classes={{
           paper: classes.drawerContainer,
         }}
-        variant="permanent"
+        variant='permanent'
         open
         anchor='left'
       >
         {drawer}
       </Drawer>
     </Hidden>
-  </Fragment>
+  </div>
 
 
 }

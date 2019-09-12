@@ -92,9 +92,8 @@ function About(props) {
         className={classes.mainContactContainer}>
       {Object.entries(contacts).map(([key, value]) =>
         <Grid
-          key={key}
           item
-          alignItems='center'
+          key={key}
           className={classes.contactContainer}>
           <Paper
             className={classes.contactPaper}
