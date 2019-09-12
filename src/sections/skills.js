@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {
-  Paper, Typography, Card,
-  Grid
+  Typography, Card, Grid
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import GetSkills from '../components/skills'
-import BackgroundImageDark from '../images/background2.webp'
-import BackgroundImageLight from '../images/background3.webp'
-import testImg from '../images/background8.webp';
+import BackgroundImageDark from '../images/backgrounds/background2.webp'
+import BackgroundImageLight from '../images/backgrounds/background3.webp'
+import testImg from '../images/backgrounds/background15.png';
+import testImg2 from '../images/backgrounds/background16.png';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     margin: 7,
     paddingBottom: 10,
     transition: "0.1s",
+    backgroundImage: `url(${testImg2})`,
     '&:hover': {
       boxShadow: '0 0.1em 0.75em black',
       transform: 'translateY(-0.25em)',
@@ -64,7 +65,7 @@ function Skills(props) {
       <Typography
         className={classes.title}
         align='center'
-        variant='h3'>
+        variant='h2'>
         Skills
       </Typography>
       {Object.entries(allSkills).map(([skill, skillInfo]) =>
@@ -95,7 +96,11 @@ function Skills(props) {
                     {skills.title}
                   </Typography>
                   <hr/>
-                  <img className={classes.skillIcon} width={100} src={skills.icon} alt={require('../images/gatsby-icon.png')}/>
+                  <img
+                    className={classes.skillIcon}
+                    width={100}
+                    src={skills.icon}
+                    alt={skills.iconAlt}/>
                 </Card>
               </Grid>
             )}

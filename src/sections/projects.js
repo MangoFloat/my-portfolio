@@ -8,9 +8,9 @@ import {
 import { makeStyles } from '@material-ui/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import GitHubIcon from "../components/custom_icons/github"
-import BackgroundImageDark from '../images/background2.webp'
-import BackgroundImageLight from '../images/background3.webp'
-import testImg from '../images/background8.webp';
+import BackgroundImageDark from '../images/backgrounds/background2.webp'
+import BackgroundImageLight from '../images/backgrounds/background3.webp'
+import testImg from '../images/backgrounds/background16.png';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     height: 200,
     display: 'flex',
     backgroundImage: `url(${testImg})`,
-    transition: "0.1s",
+    transition: '0.1s',
     '&:hover': {
       boxShadow: '0 0.1em 0.75em black',
       transform: 'translateY(-0.25em)',
@@ -65,36 +65,36 @@ const projects = {
   project1: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-icon.webp'),
-    imageSourceAlt: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/logos/gatsby-icon.webp'),
+    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project2: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-astronaut.webp'),
-    imageSourceAlt: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/logos/gatsby-astronaut.webp'),
+    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project3: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-icon.webp'),
-    imageSourceAlt: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/logos/gatsby-icon.webp'),
+    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project4: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-astronaut.webp'),
-    imageSourceAlt: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/logos/gatsby-astronaut.webp'),
+    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   },
   project5: {
     title: 'Gatsby',
     description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/gatsby-astronaut.webp'),
-    imageSourceAlt: require('../images/gatsby-icon.png'),
+    imageSource: require('../images/logos/gatsby-astronaut.webp'),
+    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
     imageTitle: 'Gatsby',
   }
 }
@@ -112,8 +112,12 @@ function Projects(props) {
         justify='center'
         alignItems='center'>
         {Object.entries(projects).map(([key, value]) =>
-          <Grid key={key} lg={4} item>
-            <Card className={classes.cardContainer}>
+          <Grid
+            key={key}
+            lg={4}
+            item>
+            <Card
+              className={classes.cardContainer}>
               <CardContent className={classes.cardContent}>
                 <Typography variant='h6'>
                   {value.title}

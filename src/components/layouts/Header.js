@@ -7,7 +7,7 @@ import { Menu } from '@material-ui/icons'
 import ScrollSpy from 'react-scrollspy'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { makeStyles } from "@material-ui/core/styles/index"
-import BackgroundImage from '../../images/background10.webp';
+import BackgroundImage from '../../images/backgrounds/background10.webp';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +27,8 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     position: 'fixed',
-    marginLeft: 10,
+    right: 0,
+    marginRight: 10,
     marginTop: 8,
     color: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
     backgroundColor: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
@@ -121,7 +122,11 @@ function Header(props) {
         </li>
       )}
     </ScrollSpy>
-    <Button className={classes.toggleThemeButton} aria-label='Toggle theme' onClick={props.onToggleTheme}>
+    <Button
+      variant='outlined'
+      className={classes.toggleThemeButton}
+      aria-label='Toggle theme'
+      onClick={props.onToggleTheme}>
       Toggle Theme
     </Button>
   </Fragment>
@@ -138,7 +143,7 @@ function Header(props) {
     <Hidden smUp>
       <Drawer
         container={container}
-        anchor='left'
+        anchor='right'
         variant='temporary'
         open={mobileOpen}
         onClose={handleDrawerToggle}

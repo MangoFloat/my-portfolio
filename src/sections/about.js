@@ -6,11 +6,12 @@ import {
 } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 
-import tempIcon from '../images/gatsby-icon.webp'
+import tempIcon from '../images/logos/gatsby-icon.webp'
 
 import GetContacts from '../components/contacts'
-import BackgroundImageDark from '../images/background2.webp'
-import BackgroundImageLight from '../images/background3.webp'
+import BackgroundImageDark from '../images/backgrounds/background2.webp'
+import BackgroundImageLight from '../images/backgrounds/background3.webp'
+import testImg from '../images/backgrounds/background16.png';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,15 +19,12 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 165
     },
     backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
-    paddingTop: '5%',
+    paddingTop: '1%',
     minHeight: '100vh'
   },
   title: {
     paddingTop: 10,
     paddingBottom: 10,
-    '&:hover': {
-
-    }
   },
   subTitle: {
     paddingBottom: 20,
@@ -42,29 +40,34 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-  contactLinks: {
-    height: '10vh',
-    minWidth: '10vh',
-    margin: 'auto'
+  mainContactContainer: {
+    paddingBottom: 10,
   },
-  contactLinksContainer: {
+  contactContainer: {
+    minWidth: 300,
+  },
+  contactPaper: {
+    marginTop: 15,
+    backgroundImage: `url(${testImg})`,
+    '&:hover': {
+      boxShadow: '0 0.1em 0.75em black',
+      transform: 'translateY(-0.25em)',
+    },
+    transition: '0.1s',
+  },
+  contactButtonIcon: {
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  },
+  contactButtonLink: {
+    minWidth: '100%',
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
-  },
-  contactLinksImage: {
-    display: 'block',
-    leftMargin: 'auto',
-    rightMargin: 'auto'
-  },
-  contactLinksLink: {
-    // TODO: Style link
-  },
-  contactsGrid: {
-
-  },
-  testing1: {
-    animationDelay: '2s'
+    marginTop: 0,
+    marginBottom: 0,
+    borderRadius: '4px 4px 0 0',
   }
 }));
 
@@ -84,14 +87,42 @@ function About(props) {
       <Grid
         container
         justify='center'
-        alignItems='center'>
+        alignItems='center'
+        direction='column'
+        className={classes.mainContactContainer}>
       {Object.entries(contacts).map(([key, value]) =>
-        <Grid item>
-          <Button aria-label={value.name}>
-            <SvgIcon fontSize='large'>
-              {value.icon}
-            </SvgIcon>
-          </Button>
+        <Grid
+          key={key}
+          item
+          alignItems='center'
+          className={classes.contactContainer}>
+          <Paper
+            className={classes.contactPaper}
+            elevation={5}>
+            <Button
+              aria-label={value.name}
+              className={classes.contactButtonLink}
+              fullWidth={true}
+              href={value.link}>
+              <SvgIcon
+                className={classes.contactButtonIcon}
+                fontSize='large'>
+                {value.icon}
+              </SvgIcon>
+              <Typography
+                variant='h6'
+                align='center'
+                style={{textTransform: 'none'}}>
+                {value.name}
+              </Typography>
+            </Button>
+            <hr style={{marginTop: 0, marginBottom: 0}}/>
+            <Typography
+              variant='body1'
+              align='center'>
+              {value.title}
+            </Typography>
+          </Paper>
         </Grid>
       )}
       </Grid>
