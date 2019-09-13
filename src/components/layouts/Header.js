@@ -25,15 +25,14 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     marginRight: 10,
     marginTop: 8,
-    color: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
-    //backgroundColor: theme.palette.type === 'dark' ? '#a8a8a8' : '#212121',
+    backgroundColor: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
   linksContainer: {
-    borderTop: '1px solid',
-    borderBottom: '1px solid',
+    borderTop: '3px solid',
+    borderBottom: '3px solid',
     marginTop: 5,
     marginBottom: 5,
     margin: 0,
@@ -42,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     padding: 0,
-    height: 45,
+    height: 40,
     transition: '0.1s',
     '&:hover': {
       backgroundColor: theme.palette.type === 'dark' ? '#1d1d1d' : '#a8a8a8'
@@ -57,7 +56,8 @@ const useStyles = makeStyles(theme => ({
   },
   linkI: {
     position: 'relative',
-    padding: '0 15px'
+    padding: '0 15px',
+    top: 5
   },
   linkSpan: {
     boxSizing: 'inherit'
@@ -147,8 +147,8 @@ function Header(props) {
   return <div
     className={classes.root}>
     <IconButton
-      color='inherit'
       aria-label='open drawer'
+      color='inherit'
       edge='start'
       onClick={handleDrawerToggle}
       className={classes.menuButton}>

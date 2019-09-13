@@ -107,7 +107,8 @@ function Projects(props) {
       <Typography
         className={classes.title}
         align="center"
-        variant="h2">
+        variant="h2"
+        noWrap={true}>
         Projects(Under construction 🐵)
       </Typography>
         <Grid
