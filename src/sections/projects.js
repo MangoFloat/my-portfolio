@@ -1,15 +1,16 @@
 import React, { Fragment } from "react"
 import {
-  Paper, Typography, Grid,
-  Container, Card, CardHeader,
-  CardMedia, CardContent, CardActionArea,
-  CardActions, Hidden
+  Typography, Grid, Card,
+  CardMedia, CardContent, CardActions,
+  Button, Tooltip,
 } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { RemoveRedEyeOutlined }from '@material-ui/icons'
+
 import GitHubIcon from "../components/custom_icons/github"
 import BackgroundImageDark from '../images/backgrounds/background2.webp'
 import BackgroundImageLight from '../images/backgrounds/background3.webp'
+import GetProjects from '../components/projects';
 import testImg from '../images/backgrounds/background16.png';
 
 const useStyles = makeStyles(theme => ({
@@ -28,8 +29,8 @@ const useStyles = makeStyles(theme => ({
     borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
   },
   cardContainer: {
-    margin: 50,
-    height: 200,
+    margin: 15,
+    minHeight: 200,
     display: 'flex',
     backgroundImage: `url(${testImg})`,
     transition: '0.1s',
@@ -39,68 +40,28 @@ const useStyles = makeStyles(theme => ({
     },
   },
   cardContent: {
-    width: '40%'
+    width: '60%'
+  },
+  projectDescription: {
+    height: 100,
+    overflowY: 'auto'
   },
   cardMedia: {
     width: '40%',
-    margin: 10,
+    marginLeft: 10
   },
   cardActions: {
-    width: '20%',
-    position: 'relative'
-  },
-  cardAction: {
-    width: '20%'
-  },
-  cardActionIcon: {
-    margin: 'auto'
+    display: 'block',
+    height: '100%'
   },
   avatar: {
     backgroundColor: 'black',
   },
 }));
 
-// TODO: Add projects here.
-const projects = {
-  project1: {
-    title: 'Gatsby',
-    description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/logos/gatsby-icon.webp'),
-    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
-    imageTitle: 'Gatsby',
-  },
-  project2: {
-    title: 'Gatsby',
-    description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/logos/gatsby-astronaut.webp'),
-    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
-    imageTitle: 'Gatsby',
-  },
-  project3: {
-    title: 'Gatsby',
-    description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/logos/gatsby-icon.webp'),
-    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
-    imageTitle: 'Gatsby',
-  },
-  project4: {
-    title: 'Gatsby',
-    description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/logos/gatsby-astronaut.webp'),
-    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
-    imageTitle: 'Gatsby',
-  },
-  project5: {
-    title: 'Gatsby',
-    description: 'Gatsby project Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    imageSource: require('../images/logos/gatsby-astronaut.webp'),
-    imageSourceAlt: require('../images/logos/gatsby-icon.png'),
-    imageTitle: 'Gatsby',
-  }
-}
-
 function Projects(props) {
   const classes = useStyles();
+  const projects = GetProjects();
 
   return <Fragment>
     <div id='projects' className={classes.root}>
@@ -109,7 +70,7 @@ function Projects(props) {
         align="center"
         variant="h2"
         noWrap={true}>
-        Projects(Under construction 🐵)
+        Projects
       </Typography>
         <Grid
         container
@@ -118,22 +79,42 @@ function Projects(props) {
         {Object.entries(projects).map(([key, value]) =>
           <Grid
             key={key}
-            lg={4}
+            lg={5}
             item>
             <Card
               className={classes.cardContainer}>
               <CardContent className={classes.cardContent}>
-                <Typography variant='h6'>
+                <Typography
+                  variant='h6'>
                   {value.title}
                 </Typography>
-                <Typography variant='body1'>
+                <Typography
+                  className={classes.projectDescription}
+                  variant='body1'>
                   {value.description}
                 </Typography>
+                <CardActions>
+                  <Tooltip title='See more screenshots of the project'>
+                    <Button
+                      variant='outlined'
+                      target='_blank'>
+                      <RemoveRedEyeOutlined/>
+                    </Button>
+                  </Tooltip>
+                  <Tooltip title='See code on GitHub'>
+                    <Button
+                      variant='outlined'
+                      target='_blank'
+                      href={value.gitHubLink}>
+                      <GitHubIcon/>
+                    </Button>
+                  </Tooltip>
+                </CardActions>
               </CardContent>
               <CardMedia
                 className={classes.cardMedia}
                 image={value.imageSource}
-                title='TEST!'>
+                title={value.imageTitle}>
               </CardMedia>
             </Card>
           </Grid>

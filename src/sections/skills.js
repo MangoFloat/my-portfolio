@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 165
     },
     margin: 'auto',
+    paddingBottom: 15,
     backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
   },
   title: {
@@ -26,8 +27,10 @@ const useStyles = makeStyles(theme => ({
   },
   skillsContainer: {
     backgroundImage: `url(${testImg})`,
-    margin: 25,
-    padding: 25,
+    margin: 20,
+    marginTop: 20,
+    padding: 15,
+    marginBottom: 0,
     transition: '0.3s',
   },
   skillsCategory: {
@@ -37,8 +40,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: 10,
   },
   skill: {
-    minWidth: 160,
-    height: 150,
+    minWidth: 130,
+    height: 100,
     margin: 7,
     paddingBottom: 10,
     transition: "0.1s",
@@ -67,7 +70,7 @@ function Skills(props) {
         align='center'
         variant='h2'
         noWrap={true}>
-        Skills(Under construction 🐵)
+        Skills
       </Typography>
       {Object.entries(allSkills).map(([skill, skillInfo]) =>
         <Card
@@ -95,13 +98,13 @@ function Skills(props) {
                   raised={true}>
                   <Typography
                     align='center'
-                    variant='h5'>
+                    variant='h6'>
                     {skills.title}
                   </Typography>
                   <hr/>
                   <img
                     className={classes.skillIcon}
-                    width={100}
+                    width={50}
                     src={skills.icon}
                     alt={skills.iconAlt}/>
                 </Card>
@@ -110,9 +113,6 @@ function Skills(props) {
           </Grid>
         </Card>
       )}
-      <Typography variant='body2'>
-        Test
-      </Typography>
     </div>
   </Fragment>
 }

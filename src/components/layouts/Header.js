@@ -8,10 +8,9 @@ import ScrollSpy from "react-scrollspy"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { makeStyles } from "@material-ui/core/styles/index"
 
+import { Brightness2Sharp, BarChartSharp, FolderSharedSharp, InfoSharp } from '@material-ui/icons'
+
 import BackgroundImage from "../../images/backgrounds/background10.webp"
-import BarChartIcon from "../custom_icons/bar-chart"
-import InfoChartIcon from "../custom_icons/info"
-import OpenFolderIcon from "../custom_icons/open-folder"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -71,10 +70,10 @@ const useStyles = makeStyles(theme => ({
   },
   toggleThemeButton: {
     position: 'relative',
-    bottom: 0,
     display: 'block',
     marginRight: 'auto',
     marginLeft: 'auto',
+    paddingBottom: 0,
     textTransform: 'none'
   }
 }));
@@ -92,17 +91,17 @@ function Header(props) {
     'about': {
       title: 'About',
       scrollTo: 'about',
-      linkIcon: InfoChartIcon(),
+      linkIcon: <InfoSharp/>,
     },
     'projects': {
       title: 'Projects',
       scrollTo: 'projects',
-      linkIcon: OpenFolderIcon()
+      linkIcon: <FolderSharedSharp/>
     },
     'skills': {
       title: 'Skills',
       scrollTo: 'skills',
-      linkIcon: BarChartIcon()
+      linkIcon: <BarChartSharp/>
     }
   }
 
@@ -140,7 +139,7 @@ function Header(props) {
       className={classes.toggleThemeButton}
       aria-label='Toggle theme'
       onClick={props.onToggleTheme}>
-      Toggle Theme
+      <Brightness2Sharp/>
     </Button>
   </Fragment>
 
