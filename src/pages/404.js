@@ -1,13 +1,11 @@
 import React, { Fragment } from "react"
-import Header from "../components/layouts/Header"
 
 class PageNotFound extends React.Component {
   render() {
     return <Fragment>
-      <Header />
-        <div>
-          Page not found
-        </div>
+      <div>
+        Page not found...
+      </div>
     </Fragment>
   }
 

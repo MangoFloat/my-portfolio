@@ -126,7 +126,6 @@ function Header(props) {
           className={classes.link}>
           <AnchorLink
             href={'#' + value.scrollTo}
-            offset='-1'
             className={classes.linkAnchor}>
             <i className={classes.linkI}>{value.linkIcon}</i>
             <span className={classes.linkSpan}>{value.title}</span>
