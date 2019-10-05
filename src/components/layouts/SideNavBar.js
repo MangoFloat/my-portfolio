@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Header(props) {
+function SideNavBar(props) {
   const classes = useStyles();
   const { container } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -108,10 +108,6 @@ function Header(props) {
   const drawer = <Fragment>
     <Typography
       className={classes.titleHeader}
-      onClick={() => window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })}
       variant="h3">
       June Jaictin
     </Typography>
@@ -182,4 +178,4 @@ function Header(props) {
 
 }
 
-export default Header
+export default SideNavBar

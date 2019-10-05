@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 
 import { Helmet } from "react-helmet"
 
-import Header from "../components/layouts/Header"
+import SideNavBar from "../components/layouts/SideNavBar"
 import About from "../sections/about"
 import Projects from "../sections/projects"
 import Skills from "../sections/skills"
@@ -51,7 +51,7 @@ export default function IndexPage() {
         <html lang='en'/>
       </Helmet>
       <CssBaseline/>
-      <Header onToggleTheme={toggleTheme}/>
+      <SideNavBar onToggleTheme={toggleTheme}/>
       <About id='about'/>
       <Projects id='projects'/>
       <Skills id='skills'/>
