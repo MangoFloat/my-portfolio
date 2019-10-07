@@ -30,10 +30,10 @@ const useStyles = makeStyles(theme => ({
     },
   },
   linksContainer: {
-    borderTop: '3px solid',
-    borderBottom: '3px solid',
-    marginTop: 5,
-    marginBottom: 5,
+    // borderTop: '3px solid',
+    // borderBottom: '3px solid',
+    // marginTop: 5,
+    // marginBottom: 5,
     margin: 0,
     padding: 0,
     display: 'table'
@@ -71,6 +71,7 @@ const useStyles = makeStyles(theme => ({
   toggleThemeButton: {
     position: 'relative',
     display: 'block',
+    marginTop: 5,
     marginRight: 'auto',
     marginLeft: 'auto',
     paddingBottom: 0,
@@ -111,6 +112,9 @@ function SideNavBar(props) {
       variant="h3">
       June Jaictin
     </Typography>
+    <div>
+      <hr style={{margin: 0}}/>
+    </div>
     <ScrollSpy
       className={classes.linksContainer}
       items={Object.keys(links)}
@@ -129,6 +133,9 @@ function SideNavBar(props) {
         </li>
       )}
     </ScrollSpy>
+    <div>
+      <hr style={{margin: 0}}/>
+    </div>
     <Button
       variant='outlined'
       className={classes.toggleThemeButton}
@@ -136,6 +143,27 @@ function SideNavBar(props) {
       onClick={props.onToggleTheme}>
       <Brightness2Sharp/>
     </Button>
+    {/*<Button*/}
+      {/*variant='outlined'*/}
+      {/*className={classes.toggleThemeButton}*/}
+      {/*aria-label='Toggle theme'*/}
+      {/*onClick={props.onToggleTheme}>*/}
+      {/*<Brightness2Sharp/>*/}
+    {/*</Button>*/}
+    {/*<Button*/}
+      {/*variant='outlined'*/}
+      {/*className={classes.toggleThemeButton}*/}
+      {/*aria-label='Toggle theme'*/}
+      {/*onClick={props.onToggleTheme}>*/}
+      {/*<Brightness2Sharp/>*/}
+    {/*</Button>*/}
+    {/*<Button*/}
+      {/*variant='outlined'*/}
+      {/*className={classes.toggleThemeButton}*/}
+      {/*aria-label='Toggle theme'*/}
+      {/*onClick={props.onToggleTheme}>*/}
+      {/*<Brightness2Sharp/>*/}
+    {/*</Button>*/}
   </Fragment>
 
   return <div
