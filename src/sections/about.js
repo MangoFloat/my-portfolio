@@ -102,7 +102,8 @@ function About(props) {
               aria-label={value.name}
               className={classes.contactButtonLink}
               fullWidth={true}
-              href={value.link}>
+              href={value.link}
+              target='_blank'>
               <SvgIcon
                 className={classes.contactButtonIcon}
                 fontSize='large'>
