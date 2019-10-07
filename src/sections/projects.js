@@ -94,13 +94,13 @@ function Projects(props) {
                   {value.description}
                 </Typography>
                 <CardActions>
-                  <Tooltip title='See more screenshots of the project'>
-                    <Button
-                      variant='outlined'
-                      target='_blank'>
-                      <RemoveRedEyeOutlined/>
-                    </Button>
-                  </Tooltip>
+                  {/*<Tooltip title='See more screenshots of the project'>*/}
+                    {/*<Button*/}
+                      {/*variant='outlined'*/}
+                      {/*target='_blank'>*/}
+                      {/*<RemoveRedEyeOutlined/>*/}
+                    {/*</Button>*/}
+                  {/*</Tooltip>*/}
                   <Tooltip title='See code on GitHub'>
                     <Button
                       variant='outlined'
