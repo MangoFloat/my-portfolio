@@ -137,27 +137,31 @@ function SideNavBar(props) {
     <div>
       <hr style={{ margin: 0 }}/>
     </div>
-    <Button
-      variant='outlined'
-      className={classes.buttons}
-      aria-label='Toggle theme'
-      onClick={props.onToggleTheme}>
-      <Brightness2Sharp fontSize='large'/>
-    </Button>
-
-    {Object.entries(contacts).map(([key, value]) =>
+    <Tooltip title="Toggle dark/light theme">
       <Button
         variant='outlined'
-        aria-label={value.name}
         className={classes.buttons}
-        href={value.link}
-        target='_blank'>
-        <SvgIcon
-          fontSize='large'
-          className={classes.contactButtonIcon}>
-          {value.icon}
-        </SvgIcon>
-      </Button>,
+        aria-label='Toggle theme'
+        onClick={props.onToggleTheme}>
+        <Brightness2Sharp fontSize='large'/>
+      </Button>
+    </Tooltip>
+
+    {Object.entries(contacts).map(([key, value]) =>
+      <Tooltip title={value.launchTooltip}>
+        <Button
+          variant='outlined'
+          aria-label={value.name}
+          className={classes.buttons}
+          href={value.link}
+          target='_blank'>
+          <SvgIcon
+            fontSize='large'
+            className={classes.contactButtonIcon}>
+            {value.icon}
+          </SvgIcon>
+        </Button>
+      </Tooltip>,
     )}
   </Fragment>
 

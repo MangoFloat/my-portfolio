@@ -10,6 +10,8 @@ import About from "../sections/about"
 import Projects from "../sections/projects"
 import Skills from "../sections/skills"
 
+import Favicon from "../images/favicon.ico"
+
 export default function IndexPage() {
   function getTheme(type) {
     return {
@@ -42,13 +44,13 @@ export default function IndexPage() {
 
   return (
     <ThemeProvider theme={muiTheme}>
-      <Helmet
-        title='June Jaictin | Full Stack Developer'
-        meta={[
-          { name: "description", content: "June Jaictin's Portfolio" },
-          { name: "charset", content: "utf-8" },
-        ]}>
+      <Helmet>
         <html lang='en'/>
+        <title>June Jaictin | Full Stack Developer</title>
+        <meta property="description" content="June Jaictin's Portfolio" />
+        <meta name="author" content="June Jaictin" />
+        <link rel="icon" href={Favicon} type="image/x-icon" />
+        <link rel="canonical" href="https://www.junejaictin.com/" />
       </Helmet>
       <CssBaseline/>
       <SideNavBar onToggleTheme={toggleTheme}/>
