@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import {
   Typography, Drawer, Hidden,
   IconButton, Button, SvgIcon,
-  Tooltip
+  Tooltip,
 } from "@material-ui/core"
 
 import { Menu } from "@material-ui/icons"

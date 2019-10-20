@@ -1,29 +1,29 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from "react"
 import {
-  Typography, Card, Grid
-} from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
-import GetSkills from '../components/info_objects/skills'
-import BackgroundImageDark from '../images/backgrounds/background2.webp'
-import BackgroundImageLight from '../images/backgrounds/background3.webp'
-import testImg from '../images/backgrounds/background15.png';
-import testImg2 from '../images/backgrounds/background16.png';
+  Typography, Card, Grid,
+} from "@material-ui/core"
+import { makeStyles } from "@material-ui/styles"
+import GetSkills from "../components/info_objects/skills"
+import BackgroundImageDark from "../images/backgrounds/background2.webp"
+import BackgroundImageLight from "../images/backgrounds/background3.webp"
+import testImg from "../images/backgrounds/background15.png"
+import testImg2 from "../images/backgrounds/background16.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: 165
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: 165,
     },
-    margin: 'auto',
+    margin: "auto",
     paddingBottom: 15,
-    backgroundImage: theme.palette.type == 'dark' ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
+    backgroundImage: theme.palette.type == "dark" ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
   },
   title: {
-    backgroundColor: theme.palette.type == 'dark' ? '#121212' : '#eeeeee',
+    backgroundColor: theme.palette.type == "dark" ? "#121212" : "#eeeeee",
     paddingTop: 10,
     paddingBottom: 10,
-    borderBottom: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
-    borderTop: '1px solid ' + (theme.palette.type == 'dark' ? '#eeeeee' : '#121212'),
+    borderBottom: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
+    borderTop: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
   },
   skillsContainer: {
     backgroundImage: `url(${testImg})`,
@@ -31,10 +31,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: 20,
     padding: 15,
     marginBottom: 0,
-    transition: '0.3s',
+    transition: "0.3s",
   },
   skillsCategory: {
-    paddingLeft: 0
+    paddingLeft: 0,
   },
   grid: {
     marginTop: 10,
@@ -46,20 +46,20 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 10,
     transition: "0.1s",
     backgroundImage: `url(${testImg2})`,
-    '&:hover': {
-      boxShadow: '0 0.1em 0.75em black',
-      transform: 'translateY(-0.25em)',
+    "&:hover": {
+      boxShadow: "0 0.1em 0.75em black",
+      transform: "translateY(-0.25em)",
     },
   },
   skillIcon: {
-    display: 'block',
-    margin: 'auto',
-  }
-}));
+    display: "block",
+    margin: "auto",
+  },
+}))
 
 function Skills(props) {
-  const classes = useStyles();
-  const allSkills = GetSkills();
+  const classes = useStyles()
+  const allSkills = GetSkills()
 
   return <Fragment>
     <div
@@ -108,10 +108,10 @@ function Skills(props) {
                     src={skills.icon}
                     alt={skills.iconAlt}/>
                 </Card>
-              </Grid>
+              </Grid>,
             )}
           </Grid>
-        </Card>
+        </Card>,
       )}
     </div>
   </Fragment>

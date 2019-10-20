@@ -1,89 +1,87 @@
-export default function Skills(props){
+export default function Skills(props) {
   return {
     languages: {
-      title: 'Languages',
-      description: '',
+      title: "Languages",
+      description: "",
       skills: {
         cSharp: {
-          title: 'C#',
-          icon: require('../images/logos/c#-logo.webp'),
-          iconAlt: 'C#',
-          note: ''
+          title: "C#",
+          icon: require("../../images/logos/c#-logo.webp"),
+          iconAlt: "C#",
+          note: "",
         },
         javascript: {
-          title: 'Javascript',
-          icon: require('../images/logos/javascript-logo.webp'), // https://www.iconfinder.com/Sennerstad
-          iconAlt: require('../images/logos/javascript-logo.svg'),
-          note: ''
+          title: "Javascript",
+          icon: require("../../images/logos/javascript-logo.webp"), // https://www.iconfinder.com/Sennerstad
+          iconAlt: require("../../images/logos/javascript-logo.svg"),
+          note: "",
         },
         html5: {
-          title: 'HTML5',
-          icon: require('../images/logos/html5-logo.webp'),
-          iconAlt: require('../images/logos/html5-logo.svg'),
-          note: ''
+          title: "HTML5",
+          icon: require("../../images/logos/html5-logo.webp"),
+          iconAlt: require("../../images/logos/html5-logo.svg"),
+          note: "",
         },
         css3: {
-          title: 'CSS3',
-          icon: require('../images/logos/css3-logo.webp'),
-          iconAlt: require('../images/logos/css3-logo.svg'),
-          note: ''
-        }
-      }
+          title: "CSS3",
+          icon: require("../../images/logos/css3-logo.webp"),
+          iconAlt: require("../../images/logos/css3-logo.svg"),
+          note: "",
+        },
+      },
     },
     jsFrameworks: {
-      title: 'Javascript Frameworks',
-      description: 'Javascript frameworks',
+      title: "Javascript Frameworks",
+      description: "Javascript frameworks",
       skills: {
         angularJS: {
-          title: 'AngularJS',
-          icon: require('../images/logos/angular-logo.webp'),
-          iconAlt: require('../images/logos/angular-logo.svg'),
-          note: ''
+          title: "AngularJS",
+          icon: require("../../images/logos/angular-logo.webp"),
+          iconAlt: require("../../images/logos/angular-logo.svg"),
+          note: "",
         },
         react: {
-          title: 'React',
-          icon: require('../images/logos/react-logo.webp'),
-          iconAlt: require('../images/logos/react-logo.svg'),
-          note: ''
-        }
-      }
+          title: "React",
+          icon: require("../../images/logos/react-logo.webp"),
+          iconAlt: require("../../images/logos/react-logo.svg"),
+          note: "",
+        },
+      },
     },
     cssFrameworks: {
-      title: 'CSS Frameworks',
-      description: 'CSS frameworks',
+      title: "CSS Frameworks",
+      description: "CSS frameworks",
       skills: {
         bootstrap: {
-          title: 'Bootstrap',
-          icon: require('../images/logos/bootstrap-logo.webp'),
-          iconAlt: require('../images/logos/bootstrap-logo.svg'),
-          note: ''
+          title: "Bootstrap",
+          icon: require("../../images/logos/bootstrap-logo.webp"),
+          iconAlt: require("../../images/logos/bootstrap-logo.svg"),
+          note: "",
         },
         materialUI: {
-          title: 'Material UI',
-          icon: require('../images/logos/material-ui-logo.webp'),
-          iconAlt: require('../images/logos/material-ui-logo.svg'),
-          note: ''
-        }
-      }
+          title: "Material UI",
+          icon: require("../../images/logos/material-ui-logo.webp"),
+          iconAlt: require("../../images/logos/material-ui-logo.svg"),
+          note: "",
+        },
+      },
     },
     tools: {
-      title: 'Tools',
-      description: 'Tools',
+      title: "Tools",
+      description: "Tools",
       skills: {
         nodeJs: { // TODO: Handle light theme 🤮
-          title: 'NodeJs',
-          icon: require('../images/logos/nodejs-logo.png'),
-          iconAlt: '',
-          note: ''
-        }
-      }
+          title: "NodeJs",
+          icon: require("../../images/logos/nodejs-logo.png"),
+          iconAlt: "",
+          note: "",
+        },
+      },
     },
     other: {
-      title: 'Other',
-      description: '',
-      skills: {
-
-      }
-    }
+      title: "Other",
+      description: "",
+      skills: {},
+    },
   }
 }
