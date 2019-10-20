@@ -31,9 +31,6 @@ const useStyles = makeStyles(theme => ({
 
 function SkillGrid(props) {
   const classes = useStyles()
-  console.log({
-    props: props,
-  })
   return <Fragment>
     <Card
       key={props.skill}

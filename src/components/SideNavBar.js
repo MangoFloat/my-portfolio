@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
   linksContainer: {
     margin: 0,
     padding: 0,
-    display: "table",
   },
   link: {
     padding: 0,
@@ -88,7 +87,6 @@ function SideNavBar(props) {
     setMobileOpen(!mobileOpen)
   }
 
-
   const links = {
     "about": {
       title: "About",
@@ -113,13 +111,16 @@ function SideNavBar(props) {
       variant="h3">
       June Jaictin
     </Typography>
+
     <div>
       <hr style={{ margin: 0 }}/>
     </div>
+
     <ScrollSpy
       className={classes.linksContainer}
       items={Object.keys(links)}
-      currentClassName={classes.active}>
+      currentClassName={classes.active}
+      offset={-1}>
       {Object.entries(links).map(([key, value]) =>
         <li
           key={key}
@@ -134,9 +135,11 @@ function SideNavBar(props) {
         </li>,
       )}
     </ScrollSpy>
+
     <div>
       <hr style={{ margin: 0 }}/>
     </div>
+
     <Tooltip title="Toggle dark/light theme">
       <Button
         variant='outlined'

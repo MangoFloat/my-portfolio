@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 10,
   },
   subTitle: {
-    paddingBottom: 20,
+    paddingBottom: 5,
   },
   intro: {
     marginBottom: 25,
@@ -88,13 +88,10 @@ function About(props) {
       <Typography className={classes.title} align='center' variant='h1'>
         June Jaictin
       </Typography>
-      <Typography align='center' variant='h5' className={classes.subTitle}>
-        •
-      </Typography>
       <Typography align='center' variant='h3' className={classes.subTitle}>
         Software Developer
       </Typography>
-      <Typography align='center' variant='h5' className={classes.subTitle}>
+      <Typography role='separator' align='center' variant='h5' className={classes.subTitle}>
         •
       </Typography>
       <Typography align='center' variant='h3' className={classes.subTitle}>
