@@ -3,7 +3,7 @@ import {
   Typography, Card, Grid
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import GetSkills from '../components/skills'
+import GetSkills from '../components/info_objects/skills'
 import BackgroundImageDark from '../images/backgrounds/background2.webp'
 import BackgroundImageLight from '../images/backgrounds/background3.webp'
 import testImg from '../images/backgrounds/background15.png';

@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 
 import { Helmet } from "react-helmet"
 
-import SideNavBar from "../components/layouts/SideNavBar"
+import SideNavBar from "../components/SideNavBar"
 import About from "../sections/about"
 import Projects from "../sections/projects"
 import Skills from "../sections/skills"

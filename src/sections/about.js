@@ -1,14 +1,13 @@
 import React, { Fragment } from "react"
 import {
-  Paper, Typography, Container,
-  Tooltip, Hidden, SvgIcon,
-  Grid, Button, ButtonGroup
+  Paper, Typography, SvgIcon,
+  Grid, Button
 } from "@material-ui/core"
 import { makeStyles } from '@material-ui/styles'
 
-import tempIcon from '../images/logos/gatsby-icon.webp'
+import tempIcon from '../images/panda.webp'
 
-import GetContacts from '../components/contacts'
+import GetContacts from '../components/info_objects/contacts'
 import BackgroundImageDark from '../images/backgrounds/background2.webp'
 import BackgroundImageLight from '../images/backgrounds/background3.webp'
 import testImg from '../images/backgrounds/background16.png';
@@ -28,17 +27,23 @@ const useStyles = makeStyles(theme => ({
   },
   subTitle: {
     paddingBottom: 20,
-    //fontSize: '2vh'
   },
   intro: {
     marginBottom: 25
   },
-  avatar: {
-    height: 200,
-    width: 200,
-    display: 'block',
+  avatarHolder:{
+    height: 230,
+    width: 230,
     marginLeft: 'auto',
     marginRight: 'auto',
+    display: 'block',
+    borderRadius: '50%',
+    overflow: 'hidden'
+  },
+  avatar: {
+    width: 'auto',
+    height: '100%',
+    marginLeft: -50
   },
   mainContactContainer: {
     paddingBottom: 10,
@@ -73,16 +78,18 @@ const useStyles = makeStyles(theme => ({
 
 function About(props) {
   const classes = useStyles();
-  const contacts = GetContacts ();
+  const contacts = GetContacts();
 
   return <Fragment>
     <div id='about' className={classes.root}>
-      <img className={classes.avatar} src={tempIcon} alt='June Jaictin Logo'/>
+      <div className={classes.avatarHolder}>
+        <img className={classes.avatar} src={tempIcon} alt='June Jaictin Logo'/>
+      </div>
       <Typography className={classes.title} align='center' variant='h1'>
         June Jaictin
       </Typography>
       <Typography align='center' variant='h3' className={classes.subTitle}>
-        Full Stack Developer
+        Software Developer
       </Typography>
       <Grid
         container

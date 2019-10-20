@@ -1,109 +1,110 @@
 import React, { Fragment } from "react"
 import {
   Typography, Drawer, Hidden,
-  IconButton, Button, SvgIcon
+  IconButton, Button, SvgIcon,
+  Tooltip
 } from "@material-ui/core"
+
 import { Menu } from "@material-ui/icons"
 import ScrollSpy from "react-scrollspy"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { makeStyles } from "@material-ui/core/styles/index"
 
-import { Brightness2Sharp, BarChartSharp, FolderSharedSharp, InfoSharp } from '@material-ui/icons'
+import { Brightness2Sharp, BarChartSharp, FolderSharedSharp, InfoSharp } from "@material-ui/icons"
 
-import BackgroundImage from "../../images/backgrounds/background10.webp"
+import BackgroundImage from "../images/backgrounds/background10.webp"
+import GetContacts from "./info_objects/contacts"
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: `url(${BackgroundImage})`,
   },
   drawerContainer: {
-    width: 165
+    width: 165,
   },
   menuButton: {
-    position: 'fixed',
+    position: "fixed",
     right: 0,
     marginRight: 10,
     marginTop: 8,
-    backgroundColor: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
+    backgroundColor: theme.palette.type === "dark" ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
     },
   },
   linksContainer: {
-    // borderTop: '3px solid',
-    // borderBottom: '3px solid',
-    // marginTop: 5,
-    // marginBottom: 5,
     margin: 0,
     padding: 0,
-    display: 'table'
+    display: "table",
   },
   link: {
     padding: 0,
     height: 40,
-    transition: '0.1s',
-    '&:hover': {
-      backgroundColor: theme.palette.type === 'dark' ? '#1d1d1d' : '#a8a8a8'
-    }
+    transition: "0.1s",
+    "&:hover": {
+      backgroundColor: theme.palette.type === "dark" ? "#1d1d1d" : "#a8a8a8",
+    },
   },
   linkAnchor: {
-    boxSizing: 'content-box',
-    display: 'block',
-    color: theme.palette.type === 'dark' ? '#f0f0f0' : '#1b1b1b',
-    textDecoration: 'none',
-    lineHeight: 3
+    boxSizing: "content-box",
+    display: "block",
+    color: theme.palette.type === "dark" ? "#f0f0f0" : "#1b1b1b",
+    textDecoration: "none",
+    lineHeight: 3,
   },
   linkI: {
-    position: 'relative',
-    padding: '0 15px',
-    top: 5
+    position: "relative",
+    padding: "0 15px",
+    top: 5,
   },
   linkSpan: {
-    boxSizing: 'inherit'
+    boxSizing: "inherit",
   },
   titleHeader: {
-    textAlign: 'center'
+    textAlign: "center",
   },
   active: {
-    borderLeft: '3px solid',
-    backgroundColor: theme.palette.type === 'dark' ? '#1d1d1d' : '#a8a8a8'
+    borderLeft: "3px solid",
+    backgroundColor: theme.palette.type === "dark" ? "#1d1d1d" : "#a8a8a8",
   },
-  toggleThemeButton: {
-    position: 'relative',
-    display: 'block',
+  buttons: {
+    position: "relative",
+    display: "block",
     marginTop: 5,
-    marginRight: 'auto',
-    marginLeft: 'auto',
+    marginRight: "auto",
+    marginLeft: "auto",
     paddingBottom: 0,
-    textTransform: 'none'
-  }
-}));
+  },
+}))
 
 function SideNavBar(props) {
-  const classes = useStyles();
-  const { container } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const classes = useStyles()
+  const contacts = GetContacts()
+
+  const { container } = props
+  const [mobileOpen, setMobileOpen] = React.useState(false)
 
   function handleDrawerToggle() {
-    setMobileOpen(!mobileOpen);
+    setMobileOpen(!mobileOpen)
   }
 
+
   const links = {
-    'about': {
-      title: 'About',
-      scrollTo: 'about',
+    "about": {
+      title: "About",
+      scrollTo: "about",
       linkIcon: <InfoSharp/>,
     },
-    'projects': {
-      title: 'Projects',
-      scrollTo: 'projects',
-      linkIcon: <FolderSharedSharp/>
+    "projects": {
+      title: "Projects",
+      scrollTo: "projects",
+      linkIcon: <FolderSharedSharp/>,
     },
-    'skills': {
-      title: 'Skills',
-      scrollTo: 'skills',
-      linkIcon: <BarChartSharp/>
-    }
+    "skills": {
+      title: "Skills",
+      scrollTo: "skills",
+      linkIcon: <BarChartSharp/>,
+    },
   }
 
   const drawer = <Fragment>
@@ -113,7 +114,7 @@ function SideNavBar(props) {
       June Jaictin
     </Typography>
     <div>
-      <hr style={{margin: 0}}/>
+      <hr style={{ margin: 0 }}/>
     </div>
     <ScrollSpy
       className={classes.linksContainer}
@@ -125,45 +126,39 @@ function SideNavBar(props) {
           onClick={handleDrawerToggle}
           className={classes.link}>
           <AnchorLink
-            href={'#' + value.scrollTo}
+            href={"#" + value.scrollTo}
             className={classes.linkAnchor}>
             <i className={classes.linkI}>{value.linkIcon}</i>
             <span className={classes.linkSpan}>{value.title}</span>
           </AnchorLink>
-        </li>
+        </li>,
       )}
     </ScrollSpy>
     <div>
-      <hr style={{margin: 0}}/>
+      <hr style={{ margin: 0 }}/>
     </div>
     <Button
       variant='outlined'
-      className={classes.toggleThemeButton}
+      className={classes.buttons}
       aria-label='Toggle theme'
       onClick={props.onToggleTheme}>
-      <Brightness2Sharp/>
+      <Brightness2Sharp fontSize='large'/>
     </Button>
-    {/*<Button*/}
-      {/*variant='outlined'*/}
-      {/*className={classes.toggleThemeButton}*/}
-      {/*aria-label='Toggle theme'*/}
-      {/*onClick={props.onToggleTheme}>*/}
-      {/*<Brightness2Sharp/>*/}
-    {/*</Button>*/}
-    {/*<Button*/}
-      {/*variant='outlined'*/}
-      {/*className={classes.toggleThemeButton}*/}
-      {/*aria-label='Toggle theme'*/}
-      {/*onClick={props.onToggleTheme}>*/}
-      {/*<Brightness2Sharp/>*/}
-    {/*</Button>*/}
-    {/*<Button*/}
-      {/*variant='outlined'*/}
-      {/*className={classes.toggleThemeButton}*/}
-      {/*aria-label='Toggle theme'*/}
-      {/*onClick={props.onToggleTheme}>*/}
-      {/*<Brightness2Sharp/>*/}
-    {/*</Button>*/}
+
+    {Object.entries(contacts).map(([key, value]) =>
+      <Button
+        variant='outlined'
+        aria-label={value.name}
+        className={classes.buttons}
+        href={value.link}
+        target='_blank'>
+        <SvgIcon
+          fontSize='large'
+          className={classes.contactButtonIcon}>
+          {value.icon}
+        </SvgIcon>
+      </Button>,
+    )}
   </Fragment>
 
   return <div
@@ -174,7 +169,7 @@ function SideNavBar(props) {
       edge='start'
       onClick={handleDrawerToggle}
       className={classes.menuButton}>
-        <Menu/>
+      <Menu/>
     </IconButton>
     <Hidden smUp>
       <Drawer
