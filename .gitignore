@@ -84,6 +84,7 @@ yarn-error.log
 
 # Host machine
 nohup.out
+kill_script.sh
 update_script.sh
 serve_script.sh
 
