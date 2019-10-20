@@ -81,3 +81,9 @@ yarn-error.log
 \.idea/vcs\.xml
 
 \.idea/workspace\.xml
+
+# Host machine
+nohup.out
+update_script.sh
+serve_script.sh
+
