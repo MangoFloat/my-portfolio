@@ -6,10 +6,8 @@ import { makeStyles } from "@material-ui/styles"
 import GetSkills from "../components/info_objects/skills"
 import BackgroundImageDark from "../images/backgrounds/background2.webp"
 import BackgroundImageLight from "../images/backgrounds/background3.webp"
-import testImg from "../images/backgrounds/background15.png"
 
-import SkillBlock from "../components/SkillBlock";
-
+import SkillGrid from "../components/SkillGrid"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,20 +25,6 @@ const useStyles = makeStyles(theme => ({
     borderBottom: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
     borderTop: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
   },
-  skillsContainer: {
-    backgroundImage: `url(${testImg})`,
-    margin: 20,
-    marginTop: 20,
-    padding: 15,
-    marginBottom: 0,
-    transition: "0.3s",
-  },
-  skillsCategory: {
-    paddingLeft: 0,
-  },
-  grid: {
-    marginTop: 10,
-  }
 }))
 
 function Skills(props) {
@@ -59,31 +43,7 @@ function Skills(props) {
         Skills
       </Typography>
       {Object.entries(allSkills).map(([skill, skillInfo]) =>
-        <Card
-          key={skill}
-          raised={true}
-          className={classes.skillsContainer}>
-          <Typography
-            className={classes.skillsCategory}
-            align='center'
-            variant='h4'>
-            {skillInfo.title}
-          </Typography>
-          <hr/>
-          <Grid
-            className={classes.grid}
-            justify='center'
-            alignContent='flex-start'
-            container>
-            {Object.entries(skillInfo.skills).map(([skillInfoKey, skills]) =>
-              <Grid
-                key={skillInfoKey}
-                item>
-                <SkillBlock {...skills} />
-              </Grid>,
-            )}
-          </Grid>
-        </Card>,
+        <SkillGrid skill={skill} skillInfo={skillInfo}/>,
       )}
     </div>
   </Fragment>

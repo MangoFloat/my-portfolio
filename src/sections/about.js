@@ -88,8 +88,17 @@ function About(props) {
       <Typography className={classes.title} align='center' variant='h1'>
         June Jaictin
       </Typography>
+      <Typography align='center' variant='h5' className={classes.subTitle}>
+        •
+      </Typography>
       <Typography align='center' variant='h3' className={classes.subTitle}>
         Software Developer
+      </Typography>
+      <Typography align='center' variant='h5' className={classes.subTitle}>
+        •
+      </Typography>
+      <Typography align='center' variant='h3' className={classes.subTitle}>
+        Student
       </Typography>
       <Grid
         container
