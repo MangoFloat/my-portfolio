@@ -7,7 +7,9 @@ import GetSkills from "../components/info_objects/skills"
 import BackgroundImageDark from "../images/backgrounds/background2.webp"
 import BackgroundImageLight from "../images/backgrounds/background3.webp"
 import testImg from "../images/backgrounds/background15.png"
-import testImg2 from "../images/backgrounds/background16.png"
+
+import SkillBlock from "../components/SkillBlock";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,23 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     marginTop: 10,
-  },
-  skill: {
-    minWidth: 130,
-    height: 100,
-    margin: 7,
-    paddingBottom: 10,
-    transition: "0.1s",
-    backgroundImage: `url(${testImg2})`,
-    "&:hover": {
-      boxShadow: "0 0.1em 0.75em black",
-      transform: "translateY(-0.25em)",
-    },
-  },
-  skillIcon: {
-    display: "block",
-    margin: "auto",
-  },
+  }
 }))
 
 function Skills(props) {
@@ -93,21 +79,7 @@ function Skills(props) {
               <Grid
                 key={skillInfoKey}
                 item>
-                <Card
-                  className={classes.skill}
-                  raised={true}>
-                  <Typography
-                    align='center'
-                    variant='h6'>
-                    {skills.title}
-                  </Typography>
-                  <hr/>
-                  <img
-                    className={classes.skillIcon}
-                    width={50}
-                    src={skills.icon}
-                    alt={skills.iconAlt}/>
-                </Card>
+                <SkillBlock {...skills} />
               </Grid>,
             )}
           </Grid>

@@ -61,8 +61,8 @@ export default function Projects(props) {
       gitHubLink: "https://github.com/MangoFloat/space-invaders",
       imageSource: require("../../images/project_images/space-invaders/in-game.png"),
       imageSourceAlt: "Space Invaders main menu",
-      imageTitle: "Gatsby",
-      live: true,
+      imageTitle: "Space Invaders",
+      live: false,
       screenShots: {
         images: [
           {
