@@ -12,7 +12,7 @@ import SkillGrid from "../components/SkillGrid"
 const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up("sm")]: {
-      marginLeft: 165,
+      marginLeft: 185,
     },
     margin: "auto",
     paddingBottom: 15,

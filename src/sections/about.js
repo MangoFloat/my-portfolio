@@ -15,7 +15,7 @@ import testImg from "../images/backgrounds/background16.png"
 const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up("sm")]: {
-      marginLeft: 165,
+      marginLeft: 185,
     },
     backgroundImage: theme.palette.type == "dark" ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
     paddingTop: "1%",

@@ -14,7 +14,7 @@ import GetProjects from "../components/info_objects/projects"
 const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up("sm")]: {
-      marginLeft: 165,
+      marginLeft: 185,
     },
     margin: "auto",
     backgroundImage: theme.palette.type == "dark" ? `url(${BackgroundImageDark})` : `url(${BackgroundImageLight})`,
