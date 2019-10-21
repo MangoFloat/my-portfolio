@@ -1,12 +1,12 @@
 import React, { Fragment } from "react"
 import {
   Card, CardContent, Typography,
-  CardActions, Tooltip, Button,
-  CardMedia,
+  CardActions, Button, CardMedia,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles/index"
 import backgroundImg from "../images/backgrounds/background16.png"
 import GitHubIcon from "../components/custom_icons/github"
+import ArrowTooltip from "../components/ArrowTooltip"
 import { RemoveRedEyeOutlined } from "@material-ui/icons" // TODO: Add screenshots to this project
 
 const useStyles = makeStyles(theme => ({
@@ -51,14 +51,14 @@ function ProjectBlock(props) {
           {props.description}
         </Typography>
         <CardActions>
-          <Tooltip title='See code on GitHub'>
+          <ArrowTooltip title='See code on GitHub'>
             <Button
               variant='outlined'
               target='_blank'
               href={props.gitHubLink}>
               <GitHubIcon/>
             </Button>
-          </Tooltip>
+          </ArrowTooltip>
         </CardActions>
       </CardContent>
       <CardMedia

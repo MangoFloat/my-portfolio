@@ -2,25 +2,35 @@ import React, { Fragment } from "react"
 import {
   Typography, Drawer, Hidden,
   IconButton, Button, SvgIcon,
-  Tooltip,
+  Avatar
 } from "@material-ui/core"
-
 import { Menu } from "@material-ui/icons"
 import ScrollSpy from "react-scrollspy"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { makeStyles } from "@material-ui/core/styles/index"
-
 import { Brightness2Sharp, BarChartSharp, FolderSharedSharp, InfoSharp } from "@material-ui/icons"
-
 import BackgroundImage from "../images/backgrounds/background10.webp"
 import GetContacts from "./info_objects/contacts"
+import ArrowTooltip from "../components/ArrowTooltip"
+import PandaImg from "../images/favicon.ico"
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: `url(${BackgroundImage})`,
   },
   drawerContainer: {
-    width: 165,
+    width: 185,
+  },
+  avatar: {
+    marginTop: 35,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    display: 'block'
+  },
+  titleHeader: {
+    textAlign: "center",
+    marginBottom: 35
   },
   menuButton: {
     position: "fixed",
@@ -58,9 +68,7 @@ const useStyles = makeStyles(theme => ({
   },
   linkSpan: {
     boxSizing: "inherit",
-  },
-  titleHeader: {
-    textAlign: "center",
+    fontSize: "1rem"
   },
   active: {
     borderLeft: "3px solid",
@@ -106,6 +114,7 @@ function SideNavBar(props) {
   }
 
   const drawer = <Fragment>
+    <Avatar src={PandaImg} className={classes.avatar}/>
     <Typography
       className={classes.titleHeader}
       variant="h3">
@@ -140,7 +149,7 @@ function SideNavBar(props) {
       <hr style={{ margin: 0 }}/>
     </div>
 
-    <Tooltip title="Toggle dark/light theme">
+    <ArrowTooltip title="Toggle dark/light theme">
       <Button
         variant='outlined'
         className={classes.buttons}
@@ -148,10 +157,10 @@ function SideNavBar(props) {
         onClick={props.onToggleTheme}>
         <Brightness2Sharp fontSize='large'/>
       </Button>
-    </Tooltip>
+    </ArrowTooltip>
 
     {Object.entries(contacts).map(([key, value]) =>
-      <Tooltip title={value.launchTooltip}>
+      <ArrowTooltip title={value.launchTooltip}>
         <Button
           variant='outlined'
           aria-label={value.name}
@@ -164,7 +173,7 @@ function SideNavBar(props) {
             {value.icon}
           </SvgIcon>
         </Button>
-      </Tooltip>,
+      </ArrowTooltip>,
     )}
   </Fragment>
 
