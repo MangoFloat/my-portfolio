@@ -12,6 +12,8 @@ TODO's:
   - Better spacing 
     - Too much space is consumed
 - Add screenshots to projects.
-
-
+- SEO stuff, update head tag.
+- Add more projects.
+    - Update README.md of the projects.
+    
 
