@@ -15,5 +15,9 @@ TODO's:
 - SEO stuff, update head tag.
 - Add more projects.
     - Update README.md of the projects.
-    
-
+- Use some Gatsby plugins
+    - gatsby-image
+        - Optimisation - lazy loading, and some other features.
+    - gatsby-plugin-manifest
+        - Web app manifest stuff.
+    - gatsby-plugin-google-analytics
