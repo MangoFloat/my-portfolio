@@ -4,9 +4,8 @@ import {
   Grid, Button,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles"
-
 import tempIcon from "../images/panda.webp"
-
+import LargeContactButton from "../components/LargeContactButton"
 import GetContacts from "../components/info_objects/contacts"
 import BackgroundImageDark from "../images/backgrounds/background2.webp"
 import BackgroundImageLight from "../images/backgrounds/background3.webp"
@@ -75,7 +74,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "4px 4px 0 0",
   },
 }))
-// Test
+
 function About(props) {
   const classes = useStyles()
   const contacts = GetContacts()
@@ -108,34 +107,7 @@ function About(props) {
             item
             key={key}
             className={classes.contactContainer}>
-            <Paper
-              className={classes.contactPaper}
-              elevation={5}>
-              <Button
-                aria-label={value.name}
-                className={classes.contactButtonLink}
-                fullWidth={true}
-                href={value.link}
-                target='_blank'>
-                <SvgIcon
-                  className={classes.contactButtonIcon}
-                  fontSize='large'>
-                  {value.icon}
-                </SvgIcon>
-                <Typography
-                  variant='h6'
-                  align='center'
-                  style={{ textTransform: "none" }}>
-                  {value.name}
-                </Typography>
-              </Button>
-              <hr style={{ marginTop: 0, marginBottom: 0 }}/>
-              <Typography
-                variant='body1'
-                align='center'>
-                {value.title}
-              </Typography>
-            </Paper>
+            <LargeContactButton {...value}/>
           </Grid>,
         )}
       </Grid>
