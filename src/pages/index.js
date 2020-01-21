@@ -46,7 +46,7 @@ export default function IndexPage() {
     <ThemeProvider theme={muiTheme}>
       <Helmet>
         <html lang='en'/>
-        <title>June Jaictin | Full Stack Developer</title>
+        <title>June Jaictin | Software Developer</title>
         <meta property="description" content="June Jaictin's Portfolio" />
         <meta name="author" content="June Jaictin" />
         <link rel="icon" href={Favicon} type="image/x-icon" />

@@ -99,7 +99,7 @@ function About(props) {
       <Typography role='separator' align='center' variant='h5' className={classes.subTitle}>
         •
       </Typography>
-      <Typography align='center' variant='h3' className={classes.subTitle}>
+      <Typography align='center' variant='h4' className={classes.subTitle}>
         (WIP)
       </Typography>
       <Grid
