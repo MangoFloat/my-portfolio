@@ -26,6 +26,10 @@ const useStyles = makeStyles(theme => ({
     borderBottom: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
     borderTop: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
   },
+  grid: {
+    paddingTop: 95,
+    paddingBottom: 95
+  }
 }))
 
 function Projects(props) {
@@ -42,6 +46,7 @@ function Projects(props) {
         Projects
       </Typography>
       <Grid
+        className={classes.grid}
         container
         justify='center'
         alignItems='center'>

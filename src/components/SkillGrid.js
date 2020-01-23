@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     borderTop: "1px solid " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
   },
   skillsContainer: {
-    backgroundImage: `url(${backgroundImage})`,
+    //backgroundImage: `url(${backgroundImage})`,
     margin: 20,
     marginTop: 20,
     padding: 15,
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   skillsCategory: {
     paddingLeft: 0,
+    textDecoration: 'underline'
   },
   grid: {
     marginTop: 10,
@@ -32,9 +33,8 @@ const useStyles = makeStyles(theme => ({
 function SkillGrid(props) {
   const classes = useStyles()
   return <Fragment>
-    <Card
-      key={props.skill}
-      raised={true}
+    <div
+
       className={classes.skillsContainer}>
       <Typography
         className={classes.skillsCategory}
@@ -42,7 +42,6 @@ function SkillGrid(props) {
         variant='h4'>
         {props.skillInfo.title}
       </Typography>
-      <hr/>
       <Grid
         className={classes.grid}
         justify='center'
@@ -56,7 +55,7 @@ function SkillGrid(props) {
           </Grid>,
         )}
       </Grid>
-    </Card>
+    </div>
   </Fragment>
 }
 

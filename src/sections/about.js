@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
     display: "block",
     borderRadius: "50%",
     overflow: "hidden",
+    marginTop: '2em',
   },
   avatar: {
     width: "auto",
@@ -49,6 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
   contactContainer: {
     minWidth: 300,
+    paddingTop: 35,
   },
   contactPaper: {
     marginTop: 15,
@@ -90,16 +92,7 @@ function About(props) {
       <Typography align='center' variant='h3' className={classes.subTitle}>
         Software Developer
       </Typography>
-      <Typography role='separator' align='center' variant='h5' className={classes.subTitle}>
-        •
-      </Typography>
-      <Typography align='center' variant='h3' className={classes.subTitle}>
-        Student
-      </Typography>
-      <Typography role='separator' align='center' variant='h5' className={classes.subTitle}>
-        •
-      </Typography>
-      <Typography align='center' variant='h4' className={classes.subTitle}>
+      <Typography align='center' variant='h5' className={classes.subTitle}>
         (WIP)
       </Typography>
       <Grid

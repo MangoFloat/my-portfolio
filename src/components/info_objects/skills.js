@@ -78,10 +78,10 @@ export default function Skills(props) {
         },
       },
     },
-    other: {
-      title: "Other",
-      description: "",
-      skills: {},
-    },
+    // other: {
+    //   title: "Other",
+    //   description: "",
+    //   skills: {},
+    // },
   }
 }
