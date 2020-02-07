@@ -22,8 +22,7 @@ const useStyles = makeStyles(theme => ({
     transition: "0.3s",
   },
   skillsCategory: {
-    paddingLeft: 0,
-    textDecoration: 'underline'
+    borderBottom: '1px solid ' + (theme.palette.type == "dark" ? "#eeeeee" : "#121212")
   },
   grid: {
     marginTop: 10,
@@ -34,7 +33,6 @@ function SkillGrid(props) {
   const classes = useStyles()
   return <Fragment>
     <div
-
       className={classes.skillsContainer}>
       <Typography
         className={classes.skillsCategory}

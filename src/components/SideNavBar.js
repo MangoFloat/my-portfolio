@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
   buttons: {
     position: "relative",
     display: "block",
-    marginTop: 5,
+    marginTop: 20,
     marginRight: "auto",
     marginLeft: "auto",
     paddingBottom: 0,

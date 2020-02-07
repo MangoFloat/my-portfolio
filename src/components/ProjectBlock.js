@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${backgroundImg})`,
     transition: "0.1s",
     "&:hover": {
-      boxShadow: "0 0.1em 0.75em black",
+      boxShadow: "0 0.1em 0.75em " + (theme.palette.type == "dark" ? "#eeeeee" : "#121212"),
       transform: "translateY(-0.25em)",
     },
   },

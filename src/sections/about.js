@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
   contactContainer: {
     minWidth: 300,
-    paddingTop: 35,
+    paddingTop: 25,
   },
   contactPaper: {
     marginTop: 15,
